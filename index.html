@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Untargeted Metabolomics Workflow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Color palette and font from user's image */
+        :root {
+            --bg-main: #F8F7E8;
+            --text-main: #2A4025;
+            --accent-dark-green: #2A4025;
+            --text-on-dark: #FFFFFF;
+            --border-light: #e5e7eb; /* gray-200 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        /* General node styling */
+        .flow-node {
+            transition: all 0.3s ease;
+            background-color: var(--accent-dark-green);
+            color: var(--text-on-dark);
+            border: 1px solid var(--accent-dark-green);
+            font-weight: 600; /* Semi-bold */
+        }
+        .flow-node:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(42, 64, 37, 0.2), 0 4px 6px -2px rgba(42, 64, 37, 0.15);
+        }
+        .header-node {
+             background-color: var(--accent-dark-green);
+             color: var(--text-on-dark);
+             border: 1px solid var(--accent-dark-green);
+        }
+        .section-card {
+            background-color: transparent;
+            border: 2px solid var(--accent-dark-green);
+        }
+        .case-study-card {
+            background-color: white;
+            color: var(--text-main);
+            border: 2px solid var(--accent-dark-green);
+        }
+        .sub-node {
+             background-color: #f7f7f7;
+             color: var(--text-main);
+             border: 1px solid var(--border-light);
+             font-weight: 500; /* Medium weight, not bold */
+             text-align: center;
+        }
+        .sub-node:hover {
+             transform: translateY(-2px);
+             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* New styles for the research process flowchart */
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .process-node {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            max-width: 400px;
+        }
+        .process-circle {
+            flex-shrink: 0;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: var(--accent-dark-green);
+            color: var(--text-on-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            z-index: 10;
+        }
+        .process-box {
+            flex-grow: 1;
+            background-color: white;
+            border: 1px solid var(--border-light);
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .process-connector {
+            width: 2px;
+            height: 2rem;
+            background-color: var(--accent-dark-green);
+        }
+        .advantage-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .advantage-icon {
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: var(--accent-dark-green);
+            color: var(--text-on-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body class="p-4 sm:p-6 lg:p-10">
+
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl lg:text-5xl font-bold text-center mb-4" style="color: var(--accent-dark-green);">
+            Global <em class="font-normal italic">Untargeted</em> Metabolomics Workflow
+        </h1>
+        <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">A visual guide to the concepts, technologies, and detailed methodologies in discovery metabolomics.</p>
+
+        <!-- Section 1: Background & Core Technologies -->
+        <div class="section-card rounded-2xl p-6 mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--accent-dark-green);">1. Background & Core Technologies</h2>
+            <div class="text-center mb-8">
+                <div class="inline-block rounded-lg p-4 shadow-lg flow-node header-node">
+                    <h3 class="font-bold text-lg text-center">Global Untargeted Metabolomics</h3>
+                    <p class="text-sm max-w-md font-normal text-center">Simultaneous and unbiased analysis of all small molecule metabolites in a sample to investigate qualitative changes after stimulation or disturbance.</p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 text-center">
+                <div class="rounded-lg p-6 flow-node bg-white text-gray-800 border-gray-300">
+                    <h4 class="text-xl font-bold mb-3 text-center" style="color: var(--text-main);">LC-MS Metabolomics</h4>
+                    <p class="text-sm text-gray-600 mb-4 font-normal text-center">Combines Liquid Chromatography (separation) with Mass Spectrometry (detection). Ideal for thermally unstable, less volatile, and larger molecules.</p>
+                </div>
+                <div class="rounded-lg p-6 flow-node bg-white text-gray-800 border-gray-300">
+                    <h4 class="text-xl font-bold mb-3 text-center" style="color: var(--text-main);">GC-MS Metabolomics</h4>
+                    <p class="text-sm text-gray-600 mb-4 font-normal text-center">Combines Gas Chromatography (separation) with Mass Spectrometry (detection). A powerful tool for complex compound analysis.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Application Fields -->
+        <div class="section-card rounded-2xl p-6 mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--accent-dark-green);">2. Application Fields</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>Medical Research</h3>
+                    <ul class="list-disc list-inside space-y-2 pl-2 text-gray-700">
+                        <li>Disease marker screening</li>
+                        <li>Investigation of etiological & pathological mechanisms</li>
+                        <li>Disease diagnosis and typing</li>
+                        <li>Clinical efficacy & pharmaco-toxicological evaluation</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg border border-gray-200">
+                     <h3 class="text-xl font-bold mb-3 flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 18a6 6 0 0 0 6-6h-6V6a6 6 0 1 0 6 6z"/></svg>Life Science Research</h3>
+                    <ul class="list-disc list-inside space-y-2 pl-2 text-gray-700">
+                        <li>Abiotic environment relationships</li>
+                        <li>Metabolic pathway & functional genomics research</li>
+                        <li>Plant, microorganism, and medicinal plant research</li>
+                        <li>Phenotype identification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Advantages -->
+        <div class="section-card rounded-2xl p-6 mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--accent-dark-green);">3. General Advantages</h2>
+            <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><div><h4 class="font-bold">Advanced Equipment</h4><p class="text-sm text-gray-600">Utilizes platforms like Orbitrap Exploris, Thermo Q Exactive™, and Agilent GC-MS systems.</p></div></div>
+                <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div><div><h4 class="font-bold">Multiple Databases</h4><p class="text-sm text-gray-600">Improves qualitative accuracy using multiple commercial and over 2,000 standard databases.</p></div></div>
+                <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div><div><h4 class="font-bold">Personalized Service</h4><p class="text-sm text-gray-600">Professional bioinformatics team provides personalized data and literature analysis.</p></div></div>
+                <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div><h4 class="font-bold">Reliable Results</h4><p class="text-sm text-gray-600">Employs strict method validation and multiple quality controls to ensure data integrity.</p></div></div>
+                <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div><div><h4 class="font-bold">Perfect After-Sales Service</h4><p class="text-sm text-gray-600">Offers efficient and high-quality support from report interpretation to article publication.</p></div></div>
+            </div>
+        </div>
+
+        <!-- Section 4: Overall Research Process (New Flowchart Design) -->
+        <div class="section-card rounded-2xl p-6 mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--accent-dark-green);">4. High-Level Research Process</h2>
+            <div class="process-flow">
+                <div class="process-node"><div class="process-circle">1</div><div class="process-box">Experimental Design</div></div>
+                <div class="process-connector"></div>
+                <div class="process-node"><div class="process-circle">2</div><div class="process-box">Sample Collection</div></div>
+                <div class="process-connector"></div>
+                <div class="process-node"><div class="process-circle">3</div><div class="process-box">Metabolite Extraction</div></div>
+                <div class="process-connector"></div>
+                <div class="process-node"><div class="process-circle">4</div><div class="process-box">Metabolite Detection (LC/GC-MS)</div></div>
+                <div class="process-connector"></div>
+                <div class="process-node"><div class="process-circle">5</div><div class="process-box">Data Quality Control</div></div>
+                <div class="process-connector"></div>
+                <div class="process-node"><div class="process-circle">6</div><div class="process-box">Data Analysis</div></div>
+                <div class="process-connector"></div>
+                <div class="process-node"><div class="process-circle">7</div><div class="process-box">Biological Interpretation</div></div>
+            </div>
+        </div>
+
+        <!-- Section 5: Case Studies -->
+        <div class="section-card rounded-2xl p-6">
+            <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--accent-dark-green);">5. Case Studies & Specific Methodologies</h2>
+            <div class="space-y-12">
+                <!-- Case Study 1: Watermeal (Hyper-gravity) -->
+                <div class="case-study-card rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-dark-green);">Watermeal (Hyper-gravity): Metabolomics & Lipidomics</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                        <div><strong class="block text-base font-bold">Extraction</strong><p class="font-normal">Methanol/formic acid with internal standards, followed by SPE cleanup (C18 cartridges).</p></div>
+                        <div><strong class="block text-base font-bold">LC-MS System</strong><p class="font-normal">Thermo Q-Exactive Orbitrap with UltiMate 3000 LC.</p></div>
+                        <div><strong class="block text-base font-bold">Metabolomics Column</strong><p class="font-normal">Hypersil GOLD™ aq C18. Gradient of ACN/H₂O.</p></div>
+                        <div><strong class="block text-base font-bold">Lipidomics Column</strong><p class="font-normal">CSH C18. Gradient of ACN/Isopropanol.</p></div>
+                        <div><strong class="block text-base font-bold">MS Parameters</strong><p class="font-normal">Full MS Res: 120k (Metabolomics), 70k (Lipidomics). MS/MS Res: 30k / 17.5k. Pos/Neg modes.</p></div>
+                        <div><strong class="block text-base font-bold">Data Software</strong><p class="font-normal">Compound Discoverer 3.3 (Metabolomics), LipidSearch v4.1 (Lipidomics).</p></div>
+                        <div><strong class="block text-base font-bold">Databases</strong><p class="font-normal">mzCloud, ChemSpider, KEGG.</p></div>
+                        <div><strong class="block text-base font-bold">Statistics</strong><p class="font-normal">Processed in MetaX. Probabilistic quotient normalization, KNN for missing data, t-tests.</p></div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2: SARS-CoV-2 (Hamster Brain) -->
+                <div class="case-study-card rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-dark-green);">SARS-CoV-2 (Hamster Brain): Proteomics & Metabolomics</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                        <div><strong class="block text-base font-bold">Proteomics Prep</strong><p class="font-normal">EasyPep™ Mini MS Sample Prep Kit. Trypsin/Lys-C digestion.</p></div>
+                        <div><strong class="block text-base font-bold">Metabolomics Prep</strong><p class="font-normal">3:1 methanol mixture extraction, dried and reconstituted.</p></div>
+                        <div><strong class="block text-base font-bold">LC-MS System</strong><p class="font-normal">Orbitrap Exploris™ 480 with RSLCnano (Proteomics) or Vanquish UHPLC (Metabolomics).</p></div>
+                        <div><strong class="block text-base font-bold">Proteomics Column</strong><p class="font-normal">PepMap™ RSLC C18. 35 min ACN gradient.</p></div>
+                        <div><strong class="block text-base font-bold">Metabolomics Column</strong><p class="font-normal">Accucore C18. 32 min Methanol gradient.</p></div>
+                        <div><strong class="block text-base font-bold">Data Software</strong><p class="font-normal">Proteome Discoverer 3.1 (Proteomics), Compound Discoverer 3.3 (Metabolomics).</p></div>
+                        <div><strong class="block text-base font-bold">Databases</strong><p class="font-normal">UniProt (Mouse) for proteins. mzCloud, ChemSpider for metabolites.</p></div>
+                        <div><strong class="block text-base font-bold">Statistics</strong><p class="font-normal">SEQUEST™ HT algorithm, 1% FDR (Proteomics). Student’s t-tests with Benjamini–Hochberg correction.</p></div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3: Human Serum (MAFLD & HIV) -->
+                <div class="case-study-card rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-dark-green);">Human Serum (MAFLD & HIV): Metabolomics</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                        <div><strong class="block text-base font-bold">Extraction</strong><p class="font-normal">Cold precipitation (Methanol/ACN/H₂O), followed by SPE cleanup (C18 cartridges).</p></div>
+                        <div><strong class="block text-base font-bold">LC-MS System</strong><p class="font-normal">Orbitrap Exploris™ 240 with Vanquish UHPLC.</p></div>
+                        <div><strong class="block text-base font-bold">Column & Gradient</strong><p class="font-normal">Hypersil GOLD™ column. 20-minute multistep gradient.</p></div>
+                        <div><strong class="block text-base font-bold">MS Parameters</strong><p class="font-normal">HESI source. Full MS Res: 120k, MS/MS Res: 15k. DDA with AcquireX for background subtraction.</p></div>
+                        <div><strong class="block text-base font-bold">Data Software</strong><p class="font-normal">Compound Discoverer™ 3.3.2.31.</p></div>
+                        <div><strong class="block text-base font-bold">Databases</strong><p class="font-normal">mzCloud, ChemSpider.</p></div>
+                        <div><strong class="block text-base font-bold">Peak ID Parameters</strong><p class="font-normal">Mass deviation: 5 ppm (processing), 2 ppm (extraction). S/N ratio: 2.</p></div>
+                        <div><strong class="block text-base font-bold">Statistics</strong><p class="font-normal">Probabilistic quotient normalization. PCA and OPLS-DA for group comparisons.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
