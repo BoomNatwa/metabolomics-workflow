@@ -138,10 +138,10 @@
                 position: absolute;
                 transform: translateX(-50%);
                 display: flex;
-                flex-direction: column;
                 align-items: center;
                 width: auto;
                 text-align: center;
+                cursor: pointer;
             }
             .timeline-step .connector {
                 order: 1;
@@ -163,12 +163,11 @@
                 box-shadow: 0 4px 12px rgba(0,0,0,0.1);
                 border: 3px solid white;
                 transition: transform 0.2s, box-shadow 0.2s;
-                cursor: pointer;
             }
             .timeline-step:hover .circle { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
             .timeline-step.active .circle { border-color: var(--accent-terracotta); transform: scale(1.1); }
             .timeline-step.top { bottom: 50%; flex-direction: column-reverse; }
-            .timeline-step.bottom { top: 50%; }
+            .timeline-step.bottom { top: 50%; flex-direction: column; }
             .vertical-timeline { display: none; }
         }
 
@@ -235,6 +234,7 @@
         .process-detail-view h3 { font-size: 1.25rem; font-weight: 700; color: var(--accent-teal); margin-bottom: 1rem; }
         .process-detail-view h4 { font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; color: var(--accent-orange); }
         .process-detail-view ul { list-style-type: disc; padding-left: 1.5rem; font-size: 0.875rem; color: #4b5563; }
+
     </style>
 </head>
 <body class="p-4 sm:p-6 lg:p-10">
@@ -245,6 +245,7 @@
         </h1>
         <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">A visual guide to the concepts, technologies, and detailed methodologies in discovery metabolomics.</p>
 
+        <!-- Section 1: Background & Core Technologies -->
         <div class="section-card rounded-2xl p-6 mb-12">
             <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">1. Background & Core Technologies</h2>
             <div class="text-center mb-8">
@@ -258,8 +259,8 @@
                             <path d="M 200 0 V 30" stroke="#588B8B" stroke-width="2.5"fill="none"/>
                             <path d="M 200 30 L 100 70" stroke="#588B8B" stroke-width="2.5" fill="none"/>
                             <path d="M 200 30 L 300 70" stroke="#588B8B" stroke-width="2.5" fill="none"/>
-                            <polygon points="95,75 100,60 105,75" fill="#588B8B" />
-                            <polygon points="295,75 300,60 305,75" fill="#588B8B" />
+                            <polygon points="90,80 100,60 105,80" fill="#588B8B" />
+                            <polygon points="290,77 300,60 305,77" fill="#588B8B" />
                         </svg>
                     </div>
                 </div>
@@ -276,6 +277,7 @@
             </div>
         </div>
 
+        <!-- Section 2: Application Fields -->
         <div class="section-card rounded-2xl p-6 mb-12">
             <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">2. Application Fields</h2>
             <div class="grid md:grid-cols-2 gap-8">
@@ -300,6 +302,7 @@
             </div>
         </div>
 
+        <!-- Section 3: Advantages -->
         <div class="section-card rounded-2xl p-6 mb-12">
             <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">3. General Advantages</h2>
             <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
@@ -311,6 +314,7 @@
             </div>
         </div>
 
+        <!-- Section 4: High-Level Research Process -->
         <div class="section-card rounded-2xl p-6 mb-12 overflow-x-auto">
             <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">4. High-Level Research Process</h2>
             
@@ -318,10 +322,12 @@
                 <img src="Picture/Flowchart.png" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-full h-auto rounded-lg shadow-md">
             </div>
 
+            <!-- Horizontal Timeline for Desktop -->
             <div id="timeline-desktop" class="horizontal-timeline timeline-container" style="min-width: 900px;">
                 <div class="timeline-line"></div>
                 <div class="timeline-start">
-                    <div class="w-48 h-48 flex items-center justify-center"> <svg viewBox="0 0 100 86.6" class="w-full h-full">
+                    <div class="w-48 h-48 flex items-center justify-center"> <!-- Increased size -->
+                         <svg viewBox="0 0 100 86.6" class="w-full h-full">
                             <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="#e5e7eb"/>
                             <text x="50" y="52" font-family="Inter, sans-serif" font-size="10" fill="#2D3047" text-anchor="middle" font-weight="600">Research Process</text>
                         </svg>
@@ -336,6 +342,7 @@
                 <div class="timeline-step bottom" data-step="7" style="left: 85%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-orange);">Biological interpretation</div></div>
             </div>
             
+            <!-- Vertical Timeline for Mobile/Tablet -->
             <div id="timeline-mobile" class="vertical-timeline space-y-4">
                 <details class="vertical-timeline-step" data-step="1"><summary><div class="vertical-timeline-circle">1</div><div class="vertical-timeline-content font-semibold">Experimental design</div></summary><div class="process-detail-view"></div></details>
                 <details class="vertical-timeline-step" data-step="2"><summary><div class="vertical-timeline-circle">2</div><div class="vertical-timeline-content font-semibold">Sample collection</div></summary><div class="process-detail-view"></div></details>
@@ -346,13 +353,17 @@
                 <details class="vertical-timeline-step" data-step="7"><summary><div class="vertical-timeline-circle">7</div><div class="vertical-timeline-content font-semibold">Biological interpretation</div></summary><div class="process-detail-view"></div></details>
             </div>
 
+            <!-- Detail View Container for Desktop -->
             <div id="process-detail-container">
-                </div>
+                <!-- Details will be injected here by JavaScript -->
+            </div>
         </div>
 
+        <!-- Section 5: Case Studies -->
         <div class="section-card rounded-2xl p-6 mb-12">
             <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">5. Case Studies & Specific Methodologies</h2>
             <div class="space-y-12">
+                <!-- Case Study 1: Watermeal (Hyper-gravity) -->
                 <div class="case-study-card rounded-2xl p-6 shadow-lg">
                     <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">Watermeal (Hyper-gravity): Metabolomics & Lipidomics</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
@@ -379,7 +390,8 @@
                         </details>
                     </div>
                 </div>
-                <div class="case-study-card rounded-2xl p-6 shadow-lg">
+                <!-- Other case studies follow... -->
+                 <div class="case-study-card rounded-2xl p-6 shadow-lg">
                     <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">SARS-CoV-2 (Hamster Brain): Proteomics & Metabolomics</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
                         <div><strong class="block text-base font-bold">Proteomics Prep</strong><p class="font-normal">EasyPep™ Mini MS Sample Prep Kit. Trypsin/Lys-C digestion.</p></div>
@@ -434,12 +446,15 @@
             </div>
         </div>
         
+        <!-- Section 6: Comments & Inquiries -->
         <div class="section-card rounded-2xl p-6 mt-12">
             <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">6. Comments & Inquiries</h2>
             <div class="max-w-2xl mx-auto">
+                <!-- The form will now submit to FormSubmit -->
                 <form action="https://formsubmit.co/natwa.meesseng@gmail.com" method="POST">
                     <div class="mb-4">
                         <label for="comment" class="block text-lg font-semibold mb-2">Leave a Comment</label>
+                        <!-- The 'name' attribute is required for the form data to be sent -->
                         <textarea id="comment" name="comment" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent" placeholder="Share your thoughts or questions..." required></textarea>
                     </div>
                     <div class="text-right">
@@ -595,7 +610,7 @@
                     if (processDetails[stepNumber]) {
                         detailView.innerHTML = `<h3>${processDetails[stepNumber].title}</h3>${processDetails[stepNumber].content}`;
                     }
-                    step.addEventListener('toggle', () => {
+                    step.addEventListener('toggle', (event) => {
                         if (step.open) {
                             // Close other open details
                             mobileSteps.forEach(otherStep => {
