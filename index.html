@@ -116,14 +116,15 @@
         
         /* Desktop: Horizontal Timeline */
         @media (min-width: 1024px) {
-            .timeline-container { position: relative; width: 100%; padding: 4rem 0; margin-top: 1rem; margin-bottom: 4rem; } /* Adjusted margins */
-            .timeline-line { position: absolute; top: 50%; left: 8%; right: 5%; height: 2px; background-color: var(--timeline-gray); transform: translateY(-50%); }
+            .timeline-container { position: relative; width: 100%; padding: 3rem 0; margin-top: 1rem; margin-bottom: 3rem; }
+            .timeline-line { position: absolute; top: 50%; left: 7%; right: 5%; height: 2px; background-color: var(--timeline-gray); transform: translateY(-50%); }
             .timeline-start { position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 10; }
             .timeline-step { position: absolute; transform: translateX(-50%); display: flex; align-items: center; width: auto; text-align: center; cursor: pointer; }
-            .timeline-step .connector { order: 1; width: 2px; height: 2.5rem; background-color: var(--timeline-gray); }
+            .timeline-step .connector { order: 1; width: 2px; height: 2rem; background-color: var(--timeline-gray); }
             .timeline-step .circle {
-                order: 2; min-width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-                font-weight: 600; color: white; padding: 0.5rem 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                order: 2; min-width: 75px; height: 75px; font-size: 0.75rem; /* Reduced size */
+                border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                font-weight: 600; color: white; padding: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
                 border: 3px solid white; transition: transform 0.2s, box-shadow 0.2s;
             }
             .timeline-step:hover .circle { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
@@ -479,7 +480,7 @@
             // Sidebar and active link logic
             const sidebar = document.getElementById('sidebar');
             const menuButton = document.getElementById('menu-button');
-            const sections = document.querySelectorAll('.section-card');
+            const sections = document.querySelectorAll('.section-card, .case-study-card'); // Include case studies for observer
             const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
             menuButton.addEventListener('click', () => {
@@ -497,7 +498,7 @@
                         });
                     }
                 });
-            }, { rootMargin: "-50% 0px -50% 0px" });
+            }, { rootMargin: "-40% 0px -60% 0px" });
 
             sections.forEach(section => observer.observe(section));
         });
