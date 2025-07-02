@@ -163,7 +163,7 @@
     <nav id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-white shadow-lg p-4 z-20 -translate-x-full lg:translate-x-0">
         <h2 class="text-xl font-bold mb-6" style="color: var(--text-main);">Workflow Sections</h2>
         <ul class="space-y-2">
-            <li><a href="#section-1" class="sidebar-link block px-4 py-2 rounded-lg hover:bg-gray-100">1. Background Information</a></li>
+            <li><a href="#section-1" class="sidebar-link block px-4 py-2 rounded-lg hover:bg-gray-100">1. Core Concepts</a></li>
             <li><a href="#section-2" class="sidebar-link block px-4 py-2 rounded-lg hover:bg-gray-100">2. Application Fields</a></li>
             <li><a href="#section-3" class="sidebar-link block px-4 py-2 rounded-lg hover:bg-gray-100">3. Key Advantages</a></li>
             <li><a href="#section-4" class="sidebar-link block px-4 py-2 rounded-lg hover:bg-gray-100">4. Research Process</a></li>
@@ -181,18 +181,18 @@
     <div class="main-content">
         <div class="max-w-7xl mx-auto">
             <h1 class="text-3xl lg:text-5xl font-bold text-center mb-4" style="color: var(--text-main);">
-                Global Untargeted Metabolomics Workflow
+                Global <em class="font-normal italic">Untargeted</em> Metabolomics Workflow
             </h1>
             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">A visual guide to the concepts, technologies, and detailed methodologies in discovery metabolomics.</p>
 
             <!-- Section 1: Background & Core Technologies -->
             <div id="section-1" class="section-card rounded-2xl p-6 mb-12">
-                <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">1. Background Information</h2>
+                <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">1. Background & Core Technologies</h2>
                 <div class="text-center mb-8">
                     <div class="relative inline-block">
                         <div class="rounded-lg p-4 shadow-lg" style="background-color:var(--accent-teal); color:white;">
                             <h3 class="font-bold text-lg text-center">Global Untargeted Metabolomics</h3>
-                            <p class="text-sm max-w-sm font-normal text-center">Simultaneous and unbiased analysis of all small molecule metabolites in a sample to investigate qualitative changes after stimulation or disturbance.</p>
+                            <p class="text-sm max-w-sm font-normal text-justify">Simultaneous and unbiased analysis of all small molecule metabolites in a sample to investigate qualitative changes after stimulation or disturbance.</p>
                         </div>
                         <div class="absolute top-full left-1/2 -translate-x-1/2 w-full h-24 hidden md:block">
                              <svg width="100%" height="100%" viewBox="0 0 400 100" preserveAspectRatio="none">
@@ -208,11 +208,11 @@
                 <div id="drop-zone" class="grid md:grid-cols-2 gap-8 text-center mt-16 md:mt-20">
                     <div id="lc-ms-box" draggable="true" class="draggable-box rounded-lg p-6 bg-white border border-gray-200 shadow-sm">
                         <h4 class="text-xl font-bold mb-3 text-center" style="color: var(--text-main);">LC-MS Metabolomics</h4>
-                        <p class="text-sm text-gray-600 max-w-sm font-normal text-center">Combines Liquid Chromatography (separation) with Mass Spectrometry (detection). Ideal for thermally unstable, less volatile, and larger molecules.</p>
+                        <p class="text-sm text-gray-600 max-w-sm font-normal text-justify">Combines Liquid Chromatography (separation) with Mass Spectrometry (detection). Ideal for thermally unstable, less volatile, and larger molecules.</p>
                     </div>
                     <div id="gc-ms-box" draggable="true" class="draggable-box rounded-lg p-6 bg-white border border-gray-200 shadow-sm">
                         <h4 class="text-xl font-bold mb-3 text-center" style="color: var(--text-main);">GC-MS Metabolomics</h4>
-                        <p class="text-sm text-gray-600 max-w-sm font-normal text-center">Combines Gas Chromatography (separation) with Mass Spectrometry (detection). A powerful tool for complex compound analysis which enhance sensitivity.</p>
+                        <p class="text-sm text-gray-600 max-w-sm font-normal text-justify">Combines Gas Chromatography (separation) with Mass Spectrometry (detection). A powerful tool for complex compound analysis which enhance sensitivity.</p>
                     </div>
                 </div>
             </div>
@@ -277,8 +277,8 @@
             <!-- Section 4: High-Level Research Process -->
             <div id="section-4" class="section-card rounded-2xl p-6 mb-12 overflow-x-auto">
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">4. High-Level Research Process</h2>
-                <div class="mb-32 flex justify-center"> <!-- Increased margin-bottom -->
-                    <img src="Picture/Flowchart.png" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-full h-full rounded-lg shadow-md">
+                <div class="mb-40 flex justify-center"> <!-- Increased margin-bottom -->
+                    <img src="Picture/Flowchart.png" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-[90%] h-auto rounded-lg shadow-md">
                 </div>
                 <!-- Horizontal Timeline for Desktop -->
                 <div id="timeline-desktop" class="horizontal-timeline timeline-container" style="min-width: 900px;">
