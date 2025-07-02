@@ -104,7 +104,13 @@
         .results-summary-button:hover { background-color: var(--accent-terracotta); }
         .results-summary-button .summary-arrow { transition: transform 0.2s; }
         details[open] .results-summary-button .summary-arrow { transform: rotate(90deg); }
-        .results-content { margin-top: 1rem; padding: 1rem; background-color: #fffaf7; border: 1px solid var(--accent-light-peach); border-radius: 0.5rem; }
+        .results-content { 
+            margin-top: 1.5rem; /* Increased margin for spacing */
+            padding: 1rem; 
+            background-color: #fffaf7; 
+            border: 1px solid var(--accent-light-peach); 
+            border-radius: 0.5rem; 
+        }
         
         .draggable-box { cursor: grab; transition: opacity 0.3s ease, box-shadow 0.3s ease; }
         .draggable-box.dragging { opacity: 0.5; cursor: grabbing; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
@@ -197,12 +203,12 @@
                         </div>
                         <div class="absolute top-full left-1/2 -translate-x-1/2 w-full h-24 hidden md:block">
                              <svg width="100%" height="100%" viewBox="0 0 400 100" preserveAspectRatio="none">
-                                <path d="M 200 0 V 30" stroke="#588B8B" stroke-width="2.5"fill="none"/>
-                                <path d="M 200 30 L 100 70" stroke="#588B8B" stroke-width="2.5" fill="none"/>
-                                <path d="M 200 30 L 300 70" stroke="#588B8B" stroke-width="2.5" fill="none"/>
-                                <polygon points="90,75 100,62 105,75" fill="#588B8B" />
-                                <polygon points="295,75 300,62 310,75" fill="#588B8B" />
-                            </svg>
+                                 <path d="M 200 0 V 30" stroke="#588B8B" stroke-width="2.5"fill="none"/>
+                                 <path d="M 200 30 L 100 70" stroke="#588B8B" stroke-width="2.5" fill="none"/>
+                                 <path d="M 200 30 L 300 70" stroke="#588B8B" stroke-width="2.5" fill="none"/>
+                                 <polygon points="90,75 100,62 105,75" fill="#588B8B" />
+                                 <polygon points="295,75 300,62 310,75" fill="#588B8B" />
+                             </svg>
                         </div>
                     </div>
                 </div>
@@ -279,12 +285,20 @@
             <div id="section-4" class="section-card rounded-2xl p-6 mb-12 overflow-x-auto">
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">4. High-Level Research Process</h2>
                 <div class="mb-16 flex justify-center"> <!-- Adjusted margin-bottom -->
-                    <img src="Picture/Flowchart.png" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-[90%] h-auto rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/gemini-generative-ai-docs/84313f7b539a6559f3ed14f121232d3d0564619a43a1523ca4162973412f1737" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-[90%] h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFFFFF/2D3047?text=Flowchart+Not+Found'">
                 </div>
                 <!-- Horizontal Timeline for Desktop -->
                 <div id="timeline-desktop" class="horizontal-timeline timeline-container" style="min-width: 900px;">
                     <div class="timeline-line"></div>
-                    <div class="timeline-start"><div class="w-40 h-40 flex items-center justify-center"><svg viewBox="0 0 100 86.6" class="w-full h-full"><polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="#e5e7eb"/><text x="50" y="52" font-family="Inter, sans-serif" font-size="10" fill="#2D3047" text-anchor="middle" font-weight="600">Research Process</text></svg></div></div>
+                    <div class="timeline-start">
+                        <div class="w-40 h-40 flex items-center justify-center">
+                            <!-- Changed to an Octagon -->
+                            <svg viewBox="0 0 100 100" class="w-full h-full">
+                                <polygon points="30,0 70,0 100,30 100,70 70,100 30,100 0,70 0,30" fill="#e5e7eb"/>
+                                <text x="50" y="55" font-family="Inter, sans-serif" font-size="10" fill="#2D3047" text-anchor="middle" font-weight="600">Research Process</text>
+                            </svg>
+                        </div>
+                    </div>
                     <div class="timeline-step bottom" data-step="1" style="left: 25%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-orange);">Experimental design</div></div>
                     <div class="timeline-step top" data-step="2" style="left: 35%;"><div class="circle" style="background-color: var(--accent-teal);">Sample collection</div><div class="connector"></div></div>
                     <div class="timeline-step bottom" data-step="3" style="left: 45%;"><div class="connector"></div><div class="circle" style="background-color: #a0a0a0;">Metabolite extraction</div></div>
