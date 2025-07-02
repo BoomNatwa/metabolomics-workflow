@@ -116,7 +116,7 @@
         
         /* Desktop: Horizontal Timeline */
         @media (min-width: 1024px) {
-            .timeline-container { position: relative; width: 100%; padding: 4rem 0; margin: 2rem 0; }
+            .timeline-container { position: relative; width: 100%; padding: 4rem 0; margin-top: 1rem; margin-bottom: 4rem; } /* Adjusted margins */
             .timeline-line { position: absolute; top: 50%; left: 8%; right: 5%; height: 2px; background-color: var(--timeline-gray); transform: translateY(-50%); }
             .timeline-start { position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 10; }
             .timeline-step { position: absolute; transform: translateX(-50%); display: flex; align-items: center; width: auto; text-align: center; cursor: pointer; }
@@ -277,7 +277,7 @@
             <!-- Section 4: High-Level Research Process -->
             <div id="section-4" class="section-card rounded-2xl p-6 mb-12 overflow-x-auto">
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">4. High-Level Research Process</h2>
-                <div class="mb-40 flex justify-center"> <!-- Increased margin-bottom -->
+                <div class="mb-16 flex justify-center"> <!-- Adjusted margin-bottom -->
                     <img src="Picture/Flowchart.png" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-[90%] h-auto rounded-lg shadow-md">
                 </div>
                 <!-- Horizontal Timeline for Desktop -->
@@ -303,7 +303,7 @@
                     <details class="vertical-timeline-step" data-step="7"><summary><div class="vertical-timeline-circle">7</div><div class="vertical-timeline-content font-semibold">Biological interpretation</div></summary><div class="process-detail-view"></div></details>
                 </div>
                 <!-- Detail View Container for Desktop -->
-                <div id="process-detail-container"></div>
+                <div id="process-detail-container" class="mt-8"></div>
             </div>
 
             <!-- Section 5: Case Studies -->
