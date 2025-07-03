@@ -56,10 +56,17 @@
         ========================================
         */
         .section-card {
-            background-color: transparent;
+            background-color: var(--bg-main); /* Changed for shadow visibility */
             border: 2px solid var(--accent-teal);
             transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(88, 139, 139, 0.07), 0 4px 6px -4px rgba(88, 139, 139, 0.07);
         }
+
+        .section-card:hover {
+            box-shadow: 0 10px 20px -5px rgba(88, 139, 139, 0.2); /* Enhanced teal shadow */
+            transform: translateY(-2px);
+        }
+
         .case-study-card {
             background-color: white;
             color: var(--text-main);
@@ -69,6 +76,18 @@
         .case-study-card:hover {
              box-shadow: 0 10px 20px -5px rgba(242, 143, 59, 0.2);
              transform: translateY(-2px);
+        }
+        
+        /* MODIFIED: Added styles for interactive inner boxes */
+        .inner-box-interactive {
+            background-color: white;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+        .inner-box-interactive:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
         }
         
         .advantage-item { display: flex; align-items: flex-start; gap: 1rem; }
@@ -112,7 +131,7 @@
             border-radius: 0.5rem; 
         }
         
-        .draggable-box { cursor: grab; transition: opacity 0.3s ease, box-shadow 0.3s ease; }
+        .draggable-box { cursor: grab; }
         .draggable-box.dragging { opacity: 0.5; cursor: grabbing; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         
         /* ========================================
@@ -188,7 +207,7 @@
     <div class="main-content">
         <div class="max-w-7xl mx-auto">
             <h1 class="text-3xl lg:text-5xl font-bold text-center mb-4" style="color: var(--text-main);">
-                 Metabolomics Workflow
+                  Metabolomics Workflow
             </h1>
             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">A visual guide to the concepts, technologies, and detailed methodologies in discovery metabolomics.</p>
 
@@ -213,11 +232,13 @@
                     </div>
                 </div>
                 <div id="drop-zone" class="grid md:grid-cols-2 gap-8 text-center mt-16 md:mt-20">
-                    <div id="lc-ms-box" draggable="true" class="draggable-box rounded-lg p-6 bg-white border border-gray-200 shadow-sm">
+                    <!-- MODIFIED: Applied new interactive class -->
+                    <div id="lc-ms-box" draggable="true" class="draggable-box inner-box-interactive p-6 rounded-lg">
                         <h4 class="text-xl font-bold mb-3 text-center" style="color: var(--text-main);">LC-MS Metabolomics</h4>
                         <p class="text-sm text-gray-600 max-w-sm font-normal text-justify">Combines Liquid Chromatography (separation) with Mass Spectrometry (detection). Ideal for thermally unstable, less volatile, and larger molecules.</p>
                     </div>
-                    <div id="gc-ms-box" draggable="true" class="draggable-box rounded-lg p-6 bg-white border border-gray-200 shadow-sm">
+                    <!-- MODIFIED: Applied new interactive class -->
+                    <div id="gc-ms-box" draggable="true" class="draggable-box inner-box-interactive p-6 rounded-lg">
                         <h4 class="text-xl font-bold mb-3 text-center" style="color: var(--text-main);">GC-MS Metabolomics</h4>
                         <p class="text-sm text-gray-600 max-w-sm font-normal text-justify">Combines Gas Chromatography (separation) with Mass Spectrometry (detection). A powerful tool for complex compound analysis which enhance sensitivity.</p>
                     </div>
@@ -228,7 +249,8 @@
             <div id="section-2" class="section-card rounded-2xl p-6 mb-12">
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">2. Application Fields</h2>
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-lg border border-gray-200">
+                    <!-- MODIFIED: Applied new interactive class -->
+                    <div class="inner-box-interactive p-6 rounded-lg">
                         <h3 class="text-xl font-bold mb-3 flex items-center gap-3">⚕️Medical Research</h3>
                         <ul class="list-disc list-inside space-y-2 pl-2 text-gray-700 text-sm">
                             <li>Disease marker screening</li>
@@ -237,7 +259,8 @@
                             <li>Clinical efficacy & pharmaco-toxicological evaluation</li>
                         </ul>
                     </div>
-                    <div class="bg-white p-6 rounded-lg border border-gray-200">
+                    <!-- MODIFIED: Applied new interactive class -->
+                    <div class="inner-box-interactive p-6 rounded-lg">
                          <h3 class="text-xl font-bold mb-3 flex items-center gap-3">🔬Life Science Research</h3>
                         <ul class="list-disc list-inside space-y-2 pl-2 text-gray-700 text-sm">
                             <li>Abiotic environment relationships</li>
@@ -246,7 +269,8 @@
                             <li>Phenotype identification</li>
                         </ul>
                     </div>
-                    <div class="bg-white p-6 rounded-lg border border-gray-200">
+                    <!-- MODIFIED: Applied new interactive class -->
+                    <div class="inner-box-interactive p-6 rounded-lg">
                          <h3 class="text-xl font-bold mb-3 flex items-center gap-3">🍎 Nutrition & Food Science</h3>
                         <ul class="list-disc list-inside space-y-2 pl-2 text-gray-700 text-sm">
                             <li>Assess food quality & authenticity</li>
@@ -255,7 +279,8 @@
                             <li>Enable personalized nutrition</li>
                         </ul>
                     </div>
-                    <div class="bg-white p-6 rounded-lg border border-gray-200">
+                    <!-- MODIFIED: Applied new interactive class -->
+                    <div class="inner-box-interactive p-6 rounded-lg">
                          <h3 class="text-xl font-bold mb-3 flex items-center gap-3">🌍 Environmental Science</h3>
                         <ul class="list-disc list-inside space-y-2 pl-2 text-gray-700 text-sm">
                             <li>Monitor ecosystem health</li>
@@ -270,14 +295,15 @@
             <div id="section-3" class="section-card rounded-2xl p-6 mb-12">
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">3. Key Advantages of Metabolomics Services</h2>
                 <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
-                    <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><div><h4 class="font-bold">Advanced Equipment & Platforms</h4><p class="text-sm text-gray-600">Utilizes high-end equipment like the Orbitrap Exploris and Thermo Q Exactive™ series for high-resolution analysis.</p></div></div>
-                    <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div><div><h4 class="font-bold">Comprehensive & Accurate Annotation</h4><p class="text-sm text-gray-600">Employs multiple databases to achieve 100% annotation of detected substances with high accuracy.</p></div></div>
-                    <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></div><div><h4 class="font-bold">Reliable and Validated Results</h4><p class="text-sm text-gray-600">Ensures dependability through strict method validation and multiple layers of quality control.</p></div></div>
-                    <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg></div><div><h4 class="font-bold">Flexible and Efficient Analysis</h4><p class="text-sm text-gray-600">Allows one-time analysis with adjustable parameters, avoiding the need to repeat experiments.</p></div></div>
-                    <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"></path></svg></div><div><h4 class="font-bold">Powerful Multi-Omics Integration</h4><p class="text-sm text-gray-600">Full-target annotation provides comprehensive info for integration with genomics and proteomics.</p></div></div>
-                    <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div><div><h4 class="font-bold">Direct Link to Phenotype</h4><p class="text-sm text-gray-600">Offers the most direct snapshot of an organism's physiological state.</p></div></div>
-                    <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg></div><div><h4 class="font-bold">Accelerates Drug Discovery</h4><p class="text-sm text-gray-600">Speeds up drug development by identifying new targets and assessing drug toxicity/efficacy.</p></div></div>
-                    <div class="advantage-item"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div><div><h4 class="font-bold">Personalized Bioinformatics & Support</h4><p class="text-sm text-gray-600">A professional team provides customized data analysis and full after-sales service.</p></div></div>
+                    <!-- MODIFIED: Applied new interactive class to all advantage items -->
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><div><h4 class="font-bold">Advanced Equipment & Platforms</h4><p class="text-sm text-gray-600">Utilizes high-end equipment like the Orbitrap Exploris and Thermo Q Exactive™ series for high-resolution analysis.</p></div></div>
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div><div><h4 class="font-bold">Comprehensive & Accurate Annotation</h4><p class="text-sm text-gray-600">Employs multiple databases to achieve 100% annotation of detected substances with high accuracy.</p></div></div>
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></div><div><h4 class="font-bold">Reliable and Validated Results</h4><p class="text-sm text-gray-600">Ensures dependability through strict method validation and multiple layers of quality control.</p></div></div>
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg></div><div><h4 class="font-bold">Flexible and Efficient Analysis</h4><p class="text-sm text-gray-600">Allows one-time analysis with adjustable parameters, avoiding the need to repeat experiments.</p></div></div>
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"></path></svg></div><div><h4 class="font-bold">Powerful Multi-Omics Integration</h4><p class="text-sm text-gray-600">Full-target annotation provides comprehensive info for integration with genomics and proteomics.</p></div></div>
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div><div><h4 class="font-bold">Direct Link to Phenotype</h4><p class="text-sm text-gray-600">Offers the most direct snapshot of an organism's physiological state.</p></div></div>
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg></div><div><h4 class="font-bold">Accelerates Drug Discovery</h4><p class="text-sm text-gray-600">Speeds up drug development by identifying new targets and assessing drug toxicity/efficacy.</p></div></div>
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div><div><h4 class="font-bold">Personalized Bioinformatics & Support</h4><p class="text-sm text-gray-600">A professional team provides customized data analysis and full after-sales service.</p></div></div>
                 </div>
             </div>
 
