@@ -490,15 +490,30 @@
             <div id="section-6" class="section-card rounded-2xl p-6 mt-12">
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">6. Comments & Inquiries</h2>
                 <div class="max-w-2xl mx-auto">
-                    <form action="https://formsubmit.co/natwa.meesseng@gmail.com" method="POST">
+                    <!-- MODIFIED: Form updated for AJAX submission -->
+                    <form id="contactForm">
+                        <input type="hidden" name="_subject" value="New Inquiry from Metabolomics Workflow Page">
+                        
+                        <div class="mb-4">
+                            <label for="name" class="block text-lg font-semibold mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent" placeholder="e.g., Jane Doe" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="email" class="block text-lg font-semibold mb-2">Your Email</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent" placeholder="e.g., jane.doe@example.com" required>
+                        </div>
+
                         <div class="mb-4">
                             <label for="comment" class="block text-lg font-semibold mb-2">Leave a Comment</label>
                             <textarea id="comment" name="comment" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent" placeholder="Share your thoughts or questions..." required></textarea>
                         </div>
                         <div class="text-right">
-                            <button type="submit" class="px-6 py-2 font-bold text-white rounded-full transition-colors" style="background-color: var(--accent-orange); hover:background-color: var(--accent-terracotta);">Submit</button>
+                            <button type="submit" id="submitButton" class="px-6 py-2 font-bold text-white rounded-full transition-colors hover:bg-orange-600" style="background-color: var(--accent-orange);">Submit</button>
                         </div>
                     </form>
+                    <!-- Div for showing submission status messages -->
+                    <div id="formMessage" class="mt-4 text-center font-semibold"></div>
                 </div>
             </div>
         </div>
@@ -594,6 +609,51 @@
             }, { rootMargin: "-40% 0px -60% 0px" });
 
             sections.forEach(section => observer.observe(section));
+
+            // --- ADDED: JavaScript for Asynchronous Form Submission ---
+            const contactForm = document.getElementById('contactForm');
+            const submitButton = document.getElementById('submitButton');
+            const formMessage = document.getElementById('formMessage');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const formEndpoint = "https://formsubmit.co/ajax/natwa.meesseng@gmail.com";
+                    const formData = new FormData(contactForm);
+
+                    submitButton.textContent = 'Submitting...';
+                    submitButton.disabled = true;
+
+                    fetch(formEndpoint, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok.');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        formMessage.textContent = "Thank you! Your message has been sent successfully.";
+                        formMessage.style.color = 'green';
+                        contactForm.reset(); 
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        formMessage.textContent = "Sorry, there was an error sending your message. Please try again.";
+                        formMessage.style.color = 'red';
+                    })
+                    .finally(() => {
+                        submitButton.textContent = 'Submit';
+                        submitButton.disabled = false;
+                    });
+                });
+            }
         });
     </script>
 </body>
