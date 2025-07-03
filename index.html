@@ -478,9 +478,16 @@
             <div id="section-6" class="section-card rounded-2xl p-6 mt-12">
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">6. Comments & Inquiries</h2>
                 <div class="max-w-2xl mx-auto">
-                    <!-- FIXED: Reverted to standard HTML form submission to fix fetch error -->
-                    <form action="https://formsubmit.co/natwa.meesseng@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="New Inquiry from Metabolomics Workflow Page">
+                    <!-- 
+                        FIXED: Switched from formsubmit.co to Formspree.
+                        The previous service was causing a connection timeout (Error 522).
+                        
+                        ACTION REQUIRED: 
+                        1. Go to https://formspree.io/ and create a free account.
+                        2. Create a new form to get a unique URL.
+                        3. Replace the placeholder URL below in the 'action' attribute with your own Formspree URL.
+                    -->
+                    <form action="https://formspree.io/f/xgvyqzwg" method="POST">
                         
                         <div class="mb-4">
                             <label for="name" class="block text-lg font-semibold mb-2">Your Name</label>
@@ -596,7 +603,6 @@
 
             sections.forEach(section => observer.observe(section));
 
-            // REMOVED: JavaScript for Asynchronous Form Submission to fix the fetch error.
         });
     </script>
 </body>
