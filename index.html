@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metabolomics Workflow</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Replaced Inter font with Chakra Petch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ========================================
         Color Palette & Font Configuration
@@ -25,7 +28,8 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            /* Updated font-family to Chakra Petch */
+            font-family: 'Chakra Petch', sans-serif;
             background-color: var(--bg-main);
             color: var(--text-main);
         }
@@ -206,7 +210,7 @@
     <div class="main-content">
         <div class="max-w-7xl mx-auto">
             <h1 class="text-3xl lg:text-5xl font-bold text-center mb-4" style="color: var(--text-main);">
-                  Metabolomics Workflow
+                  Multi-omics analysis workflow
             </h1>
             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">A visual guide to the concepts, technologies, and detailed methodologies in discovery metabolomics.</p>
 
@@ -286,16 +290,18 @@
 
             <!-- Section 3: Advantages -->
             <div id="section-3" class="section-card rounded-2xl p-6 mb-12">
-                <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">3. Key Advantages of Metabolomics Services</h2>
+                <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">3. Key Advantages of multi-omics services</h2>
                 <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><div><h4 class="font-bold">Urgent Service</h4><p class="text-sm text-gray-600">Untargeted compounds analysis available within 5 working days.</p></div></div>
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div><div><h4 class="font-bold">High Sensitivity</h4><p class="text-sm text-gray-600">Up to 1 ppb for caffeine standard and 0.6 ppb for abscisic acid.</p></div></div>
                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><div><h4 class="font-bold">Advanced Equipment & Platforms</h4><p class="text-sm text-gray-600">Utilizes high-end equipment like the Orbitrap Exploris and Thermo Q Exactive™ series for high-resolution analysis.</p></div></div>
-                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div><div><h4 class="font-bold">Comprehensive & Accurate Annotation</h4><p class="text-sm text-gray-600">Employs multiple databases to achieve 100% annotation of detected substances with high accuracy.</p></div></div>
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div><div><h4 class="font-bold">Comprehensive & Accurate Annotation</h4><p class="text-sm text-gray-600">Employs multiple databases to achieve 100% annotation of detected substances with high accuracy. <b> Licensed databases are available. </b></p></div></div>
                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></div><div><h4 class="font-bold">Reliable and Validated Results</h4><p class="text-sm text-gray-600">Ensures dependability through strict method validation and multiple layers of quality control.</p></div></div>
                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg></div><div><h4 class="font-bold">Flexible and Efficient Analysis</h4><p class="text-sm text-gray-600">Allows one-time analysis with adjustable parameters, avoiding the need to repeat experiments.</p></div></div>
                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"></path></svg></div><div><h4 class="font-bold">Powerful Multi-Omics Integration</h4><p class="text-sm text-gray-600">Full-target annotation provides comprehensive info for integration with genomics and proteomics.</p></div></div>
-                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div><div><h4 class="font-bold">Direct Link to Phenotype</h4><p class="text-sm text-gray-600">Offers the most direct snapshot of an organism's physiological state.</p></div></div>
-                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg></div><div><h4 class="font-bold">Accelerates Drug Discovery</h4><p class="text-sm text-gray-600">Speeds up drug development by identifying new targets and assessing drug toxicity/efficacy.</p></div></div>
                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div><div><h4 class="font-bold">Personalized Bioinformatics & Support</h4><p class="text-sm text-gray-600">A professional team provides customized data analysis and full after-sales service.</p></div></div>
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></div><div><h4 class="font-bold">Comprehensive Biological Insight 🔬</h4><p class="text-sm text-gray-600">Combining data from genomics, transcriptomics, proteomics, and metabolomics provides a more complete, multi-layered view of biological processes. This holistic perspective allows researchers to move beyond isolated data points and see the larger picture of how a system functions.</p></div></div>
+                    <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div><div><h4 class="font-bold">Customized Services</h4><p class="text-sm text-gray-600">Peptide mapping for glycomics profiling, monoclonal antibody characterization, Neoantigen peptide mass spectrometry, LC-MS/MS for in vivo pharmacokinetics, and others.</p></div></div>
                 </div>
             </div>
 
@@ -312,7 +318,8 @@
                         <div class="w-40 h-40 flex items-center justify-center">
                             <svg viewBox="0 0 100 100" class="w-full h-full">
                                 <polygon points="30,0 70,0 100,30 100,70 70,100 30,100 0,70 0,30" fill="#e5e7eb"/>
-                                <text x="50" y="55" font-family="Inter, sans-serif" font-size="10" fill="#2D3047" text-anchor="middle" font-weight="600">Research Process</text>
+                                <!-- Updated font-family in SVG -->
+                                <text x="50" y="55" font-family="'Chakra Petch', sans-serif" font-size="10" fill="#2D3047" text-anchor="middle" font-weight="600">Research Process</text>
                             </svg>
                         </div>
                     </div>
@@ -390,7 +397,7 @@
                     </div>
                      <!-- Case Study 2: COVID -->
                      <div class="case-study-card rounded-2xl p-6 shadow-lg">
-                        <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">SARS-CoV-2 (Hamster Brain): Proteomics & Metabolomics</h3>
+                        <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">SARS-CoV-2 in hamster model: Proteomics & Metabolomics</h3>
                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
                             <div><strong class="block text-base font-bold">Proteomics Prep</strong><p class="font-normal">EasyPep™ Mini MS Sample Prep Kit. Trypsin/Lys-C digestion.</p></div>
                             <div><strong class="block text-base font-bold">Metabolomics Prep</strong><p class="font-normal">3:1 methanol mixture extraction, dried and reconstituted.</p></div>
@@ -432,7 +439,7 @@
                     </div>
                     <!-- Case Study 3: Serum -->
                     <div class="case-study-card rounded-2xl p-6 shadow-lg">
-                        <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">Human Serum (MAFLD & HIV): Metabolomics</h3>
+                        <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">Clinical samples (Human serum) with Metabolic dysfunction-associated fatty liver disease (MAFLD)</h3>
                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
                             <div><strong class="block text-base font-bold">Extraction</strong><p class="font-normal">Cold precipitation (Methanol/ACN/H₂O), followed by SPE cleanup (C18 cartridges).</p></div>
                             <div><strong class="block text-base font-bold">LC-MS System</strong><p class="font-normal">Orbitrap Exploris™ 240 with Vanquish UHPLC.</p></div>
@@ -471,6 +478,93 @@
                                 </div>
                             </details>
                         </div>
+                    </div>
+                    <!-- Case Study 4: Mushroom -->
+                    <div class="case-study-card rounded-2xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">Golden mushroom: Metabolomics with AI-pharmacokinetic prediction
+                        </h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                            <div><strong class="block text-base font-bold">Extraction</strong><p class="font-normal">A 50/50 water-ethanol solution was used to extract metabolites from powdered mushroom tissue, followed by cleanup using Solid-Phase Extraction (SPE).</p></div>
+                            <div><strong class="block text-base font-bold">LC-MS System</strong><p class="font-normal">Thermo Q Exactive-X Quadrupole Orbitrap Mass Spectrometer coupled with an UltiMate 3000 UHPLC system.</p></div>
+                            <div><strong class="block text-base font-bold">Column & Gradient</strong><p class="font-normal">Hypersil GOLD™ C18 column with a total run time of 20 minutes per sample.</p></div>
+                            <div><strong class="block text-base font-bold">MS Parameters</strong><p class="font-normal">Full MS Res: 180,000 in both positive and negative ESI modes. Data-dependent MS/MS was performed on the top 20 most intense ions.</p></div>
+                            <div><strong class="block text-base font-bold">Data Software</strong><p class="font-normal">Compound Discoverer 3.1 was used for processing , alongside the AIDDISON™ platform for virtual screening and docking.</p></div>
+                            <div><strong class="block text-base font-bold">Databases</strong><p class="font-normal">mzCloud, ChemSpider (ChEBI, ChemBank), and The Natural Products Atlas 3.0 were used for identification.</p></div>
+                            <div><strong class="block text-base font-bold">Peak ID Parameters</strong><p class="font-normal">Mass tolerance was set to 5 ppm. A signal-to-noise ratio of 1.5 was used. Confident IDs required a mass deviation lower than 2 ppm.</p></div>
+                            <div><strong class="block text-base font-bold">Statistics</strong><p class="font-normal">Pharmacokinetic clustering was performed using a Gaussian Mixture Model (GMM). PCA and UMAP were used for visualization and dimensionality reduction.</p></div>
+                        </div>
+                         <div class="mt-6">
+                             <details>
+                                 <summary class="results-summary-button">View Key Results <span class="summary-arrow ml-2 inline-block">&#9654;</span></summary>
+                                 <div class="results-content">
+                                     <h4 class="font-bold mb-2">Key Findings:</h4>
+                                     <ul class="list-disc list-inside text-sm space-y-1">
+                                         <li>High-resolution LC-MS/MS analysis identified 1,025 distinct molecular features in the *Pleurotus citrinopileatus* extract.</li>
+                                         <li>An AI-driven ADMET profile and pharmacokinetic clustering prioritized a subset of 27 compounds (Cluster 14) with optimal drug-like properties.</li>
+                                         <li>Multi-target molecular docking identified the dipeptide-like compound 5S-hydroxynorvaline-S-Ile as the most promising lead candidate. It exhibited the strongest binding energies across three key anti-diabetic enzymes: DPP4, α-amylase, and α-glucosidase.</li>
+                                         <li>The "fail-fast, fail-early" workflow, which filters compounds based on pharmacokinetics *before* docking, efficiently navigated complex metabolomic data to discover a viable lead candidate, mitigating high attrition rates in drug development.</li>
+                                     </ul>
+                                     <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
+                                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                                         <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+                                             <img src="Picture/Mushroom1.png" alt="PCA Plot of Metabolite Clusters" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'">
+                                             <p class="text-xs mt-2 text-gray-600 text-left"><strong>PCA Plot:</strong> This plot displays metabolite clusters based on ADMET properties. It shows the clear separation of Cluster 14, which contains compounds with the most favorable drug-like characteristics.</p>
+                                         </div>
+                                         <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+                                             <img src="Picture/Mushroom2.png" alt="Docking Pose of Lead Compound" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'">
+                                             <p class="text-xs mt-2 text-gray-600 text-left"><strong>Molecular Docking Pose:</strong> The predicted binding conformation of 5S-hydroxynorvaline-S-Ile within the active site of the DPP4 enzyme. The model reveals critical hydrogen bonds and hydrophobic interactions responsible for its high binding affinity.</p>
+                                         </div>
+                                         <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+                                             <img src="Picture/Mushroom3.png" alt="Enzyme Inhibition Chart" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'">
+                                             <p class="text-xs mt-2 text-gray-600 text-left"><strong>Enzyme Inhibition:</strong> The mushroom extract demonstrated notable inhibitory effects against three key glucose-regulating enzymes: α-amylase (~46% inhibition), α-glucosidase (~39% inhibition), and DPP4 (~36% inhibition).</p>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </details>
+                         </div>
+                    </div>
+                    <!-- Case Study 5: Water -->
+                    <div class="case-study-card rounded-2xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">leaching precious metals from waste printed circuit boards: Metabolomics</h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                            <div><strong class="block text-base font-bold">Extraction</strong><p class="font-normal">Bacterial supernatants were centrifuged and cleaned up using Solid-Phase Extraction (SPE) with C18 cartridges before analysis.</p></div>
+                            <div><strong class="block text-base font-bold">LC-MS System</strong><p class="font-normal">Thermo Q-Exactive quadrupole orbitrap mass spectrometer coupled with an UltiMate 3000 LC system.</p></div>
+                            <div><strong class="block text-base font-bold">Column & Gradient</strong><p class="font-normal">A Hypersil GOLD™ C18 column was used for separating metabolites.</p></div>
+                            <div><strong class="block text-base font-bold">MS Parameters</strong><p class="font-normal">The system operated in positive mode. It alternated between MS full scans and data-dependent MS/MS scans with dynamic exclusion.</p></div>
+                            <div><strong class="block text-base font-bold">Data Software</strong><p class="font-normal">Compound Discoverer 3.1 was used to identify and quantitate extracellular metabolites.</p></div>
+                            <div><strong class="block text-base font-bold">Databases</strong><p class="font-normal">Metabolites were identified by cross-referencing with mzCloud and ChemSpider online databases.</p></div>
+                            <div><strong class="block text-base font-bold">Peak ID Parameters</strong><p class="font-normal">Metabolites reported showed a significant difference compared to the control medium (p<0.01) after Benjamini-Hochberg correction.</p></div>
+                            <div><strong class="block text-base font-bold">Statistics</strong><p class="font-normal">One-way ANOVA with Tukey's HSD test and Benjamini-Hochberg correction for metabolomics data were used. Hierarchical clustering was also performed.</p></div>
+                        </div>
+                         <div class="mt-6">
+                             <details>
+                                 <summary class="results-summary-button">View Key Results <span class="summary-arrow ml-2 inline-block">&#9654;</span></summary>
+                                 <div class="results-content">
+                                     <h4 class="font-bold mb-2">Key Findings:</h4>
+                                     <ul class="list-disc list-inside text-sm space-y-1">
+                                         <li>A novel stepwise bioleaching process was developed to maximize metal recovery from Waste Printed Circuit Boards (WPCBs). The first step used *C. funkei* to remove base metals like copper, and the second step used *B. thuringiensis* to extract gold.</li>
+                                         <li>Pretreating WPCBs with ball milling and ozonation significantly enhanced the stepwise process, improving gold extraction yield from 47% to 73% in the second step alone, and achieving a total final gold recovery of 93%.</li>
+                                         <li>Metabolomics analysis identified *N⁸*-acetylspermidine as a key metabolite produced by all tested bacteria.</li>
+                                         <li>Further testing confirmed that *N⁸*-acetylspermidine negatively affects gold extraction by causing the reduction and precipitation of gold ions from the solution, a previously unreported phenomenon in bioleaching.</li>
+                                     </ul>
+                                     <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
+                                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                                         <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+                                             <img src="Picture/Water1.png" alt="Schematic of Bioleaching Process" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'">
+                                             <p class="text-xs mt-2 text-gray-600 text-left"><strong>Overall Bioleaching Process:</strong> A schematic of the innovative and highly efficient stepwise process for copper and gold extraction. The process involves pretreatment followed by sequential bioleaching with two different bacteria.</p>
+                                         </div>
+                                         <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+                                             <img src="Picture/Water2.png" alt="Effect of Pretreatment on Gold Leaching" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'">
+                                             <p class="text-xs mt-2 text-gray-600 text-left"><strong>Pretreatment Enhances Gold Recovery:</strong> This chart shows that pretreating WPCBs dramatically increased the total gold bioleaching yield to 93%, compared to 59% from non-pretreated samples in the same stepwise process.</p>
+                                         </div>
+                                         <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+                                             <img src="Picture/Water3.png" alt="Metabolite Heat Map" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'">
+                                             <p class="text-xs mt-2 text-gray-600 text-left"><strong>Metabolite Heat Map:</strong> Hierarchical clustering clearly separates the bacterial supernatants from the control medium, with the profile of *C. funkei* being markedly different from the others, likely explaining its unique ability to leach copper effectively.</p>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </details>
+                         </div>
                     </div>
                 </div>
             </div>
