@@ -9,26 +9,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Feather Icons for better iconography -->
-    <script src="https://unpkg.com/feather-icons"></script>
-
+    
     <style>
         /* ========================================
-         Color Palette & Font Configuration
+         Color Palette & Font Configuration (New Design)
          ======================================== */
         :root {
-            --bg-main: #f0f4f8; /* Lighter, softer background */
-            --bg-particle: #e9eef3;
-            --text-main: #1f2937; /* Darker gray for better contrast */
-            --text-secondary: #4b5563;
-            --accent-teal: #14b8a6; /* A more vibrant teal */
-            --accent-orange: #f97316; /* A punchier orange */
-            --accent-terracotta: #ef4444; /* A vibrant red for highlights */
-            --accent-light-peach: #ffedd5;
-            --border-light: #d1d5db;
-            --timeline-gray: #9ca3af;
-            --glass-bg: rgba(255, 255, 255, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.2);
+            --bg-main: #f0f4f8; /* Kept the light background from the original for particle visibility */
+            --bg-particle: #e9eef3; /* Kept from original */
+            --text-main: #2D3047; /* Dark Blue/Gray */
+            --accent-teal: #588B8B;
+            --accent-orange: #F28F3B;
+            --accent-terracotta: #C8553D;
+            --accent-light-peach: #FFD5C2;
+            --text-on-dark: #FFFFFF;
+            --border-light: #e5e7eb;
+            --timeline-gray: #d1d5db;
         }
 
         body {
@@ -39,7 +35,7 @@
         }
 
         /* ========================================
-         Animated Background
+         Animated Background (Kept from Original)
          ======================================== */
         #particles-js {
             position: fixed;
@@ -56,17 +52,17 @@
             transition: margin-left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         .sidebar {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-right: 1px solid var(--glass-border);
+            background-color: rgba(255, 255, 255, 0.85); /* Solid-ish background for new design */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-right: 1px solid var(--border-light);
             transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         .sidebar-link.active {
-            background: linear-gradient(90deg, var(--accent-orange), var(--accent-terracotta));
+            background: var(--accent-orange);
             color: white;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+            box-shadow: 0 4px 15px rgba(242, 143, 59, 0.3);
             transform: translateX(5px) scale(1.02);
         }
         .sidebar-link {
@@ -83,29 +79,52 @@
         }
 
         /* ========================================
-         "Fancier" Component Styling
+         Component Styling (New Design)
          ======================================== */
         .section-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 2px solid var(--accent-teal);
             transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(88, 139, 139, 0.07), 0 4px 6px -4px rgba(88, 139, 139, 0.07);
         }
         .section-card:hover {
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+            box-shadow: 0 10px 20px -5px rgba(88, 139, 139, 0.2);
             transform: translateY(-5px);
         }
 
-        .case-study-card, .inner-box-interactive {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid var(--glass-border);
+        .case-study-card {
+            background-color: white;
+            color: var(--text-main);
+            border: 2px solid var(--accent-orange);
             transition: all 0.3s ease;
         }
-        .case-study-card:hover, .inner-box-interactive:hover {
-            transform: translateY(-3px) scale(1.01);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        .case-study-card:hover {
+             box-shadow: 0 10px 20px -5px rgba(242, 143, 59, 0.2);
+             transform: translateY(-2px);
+        }
+        
+        .inner-box-interactive {
+            background-color: white;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+        .inner-box-interactive:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        .advantage-item { display: flex; align-items: flex-start; gap: 1rem; }
+        .advantage-icon {
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: var(--accent-teal);
+            color: var(--text-on-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* ========================================
@@ -138,48 +157,56 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: linear-gradient(90deg, var(--accent-orange), var(--accent-terracotta));
+            background-color: var(--accent-orange);
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 9999px;
             font-weight: 600;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.2);
         }
         .results-summary-button:hover {
+            background-color: var(--accent-terracotta);
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
         }
         .summary-arrow { transition: transform 0.3s ease; }
         details[open] .summary-arrow { transform: rotate(90deg); }
-        .results-content { margin-top: 1.5rem; padding: 1.5rem; background-color: #fff; border: 1px solid var(--accent-light-peach); border-radius: 0.75rem; }
+        .results-content { margin-top: 1.5rem; padding: 1.5rem; background-color: #fffaf7; border: 1px solid var(--accent-light-peach); border-radius: 0.75rem; }
+
+        /* Draggable Box Styling */
+        .draggable-box { cursor: grab; }
+        .draggable-box.dragging { opacity: 0.5; cursor: grabbing; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
         /* ========================================
-         Timeline Enhancements
+         Timeline Enhancements (New Design)
          ======================================== */
+        /* Desktop: Horizontal Timeline */
         @media (min-width: 1024px) {
             .timeline-container { position: relative; width: 100%; padding: 3rem 0; margin-top: 1rem; margin-bottom: 3rem; }
-            .timeline-line { position: absolute; top: 50%; left: 7%; right: 5%; height: 3px; background-color: var(--timeline-gray); transform: translateY(-50%); }
-            .timeline-line-progress { position: absolute; top: 50%; left: 7%; height: 3px; background: linear-gradient(90deg, var(--accent-orange), var(--accent-terracotta)); transform: translateY(-50%); width: 0; transition: width 0.5s ease; }
+            .timeline-line { position: absolute; top: 50%; left: 7%; right: 5%; height: 2px; background-color: var(--timeline-gray); transform: translateY(-50%); }
+            .timeline-start { position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 10; }
+            .timeline-step { position: absolute; transform: translateX(-50%); display: flex; align-items: center; width: auto; text-align: center; cursor: pointer; }
+            .timeline-step .connector { order: 1; width: 2px; height: 2rem; background-color: var(--timeline-gray); }
             .timeline-step .circle {
-                border: 4px solid white;
-                transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+                order: 2; min-width: 75px; height: 75px; font-size: 0.75rem;
+                border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                font-weight: 600; color: white; padding: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                border: 3px solid white; transition: transform 0.2s, box-shadow 0.2s;
             }
-            .timeline-step:hover .circle { transform: scale(1.1); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
-            .timeline-step.active .circle {
-                border-color: var(--accent-terracotta);
-                transform: scale(1.15);
-                box-shadow: 0 0 20px var(--accent-orange);
-            }
+            .timeline-step:hover .circle { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
+            .timeline-step.active .circle { border-color: var(--accent-terracotta); transform: scale(1.1); }
+            .timeline-step.top { bottom: 50%; flex-direction: column-reverse; }
+            .timeline-step.bottom { top: 50%; flex-direction: column; }
+            .vertical-timeline { display: none; }
         }
-        /* Vertical timeline styles from original code */
+
+        /* Mobile/Tablet: Vertical Timeline */
         @media (max-width: 1023px) {
             .horizontal-timeline { display: none; }
             .vertical-timeline { position: relative; padding-left: 1.5rem; border-left: 2px solid var(--timeline-gray); margin-left: 1.25rem; }
             .vertical-timeline-step summary::-webkit-details-marker { display: none; }
             .vertical-timeline-step summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 1rem; position: relative; }
             .vertical-timeline-circle {
-                position: absolute; left: -2.8rem; top: 50%; transform: translateY(-50%); width: 2.5rem; height: 2.5rem;
+                position: absolute; left: -2.2rem; top: 50%; transform: translateY(-50%); width: 2.5rem; height: 2.5rem;
                 border-radius: 50%; background-color: white; border: 2px solid var(--accent-teal); display: flex;
                 align-items: center; justify-content: center; font-weight: 700; color: var(--accent-teal); transition: all 0.2s;
             }
@@ -187,6 +214,7 @@
             details[open].vertical-timeline-step .vertical-timeline-circle { background-color: var(--accent-terracotta); color: white; border-color: var(--accent-terracotta); }
             details[open].vertical-timeline-step .vertical-timeline-content { border-color: var(--accent-orange); }
         }
+        
         .process-detail-view { background-color: #f7f8fa; border: 1px solid var(--border-light); border-radius: 0.75rem; padding: 1.5rem; margin-top: 1.5rem; }
         .process-detail-view h3 { font-size: 1.25rem; font-weight: 700; color: var(--accent-teal); margin-bottom: 1rem; }
         .process-detail-view h4 { font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; color: var(--accent-orange); }
@@ -211,22 +239,21 @@
         </ul>
     </nav>
     
-    <!-- Mobile Menu Button -->
-    <button id="menu-button" class="lg:hidden fixed top-4 left-4 z-30 p-2 bg-white/70 backdrop-blur-sm rounded-md shadow-lg">
-        <i data-feather="menu"></i>
+    <!-- Mobile Menu Button with SVG -->
+    <button id="menu-button" class="lg:hidden fixed top-4 left-4 z-30 p-2 bg-white/80 backdrop-blur-sm rounded-md shadow-lg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
     </button>
 
     <!-- Main Content -->
     <div class="main-content">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 fade-in-up">
-                <h1 class="text-4xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">
+                <h1 class="text-4xl lg:text-6xl font-bold mb-4" style="color: var(--text-main);">
                     Multi-omics Analysis Workflow
                 </h1>
-                <p class="text-lg text-secondary max-w-3xl mx-auto">A visual guide to the concepts, technologies, and detailed methodologies in discovery metabolomics.</p>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">A visual guide to the concepts, technologies, and detailed methodologies in discovery metabolomics.</p>
             </div>
 
-            <!-- All sections will have the 'fade-in-up' class for scroll animation -->
             <!-- Section 1: Core Technologies -->
             <div id="section-1" class="section-card rounded-2xl p-6 mb-12 fade-in-up">
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">1. Background & Core Technologies</h2>
@@ -238,16 +265,16 @@
                         </div>
                         <div class="absolute top-full left-1/2 -translate-x-1/2 w-full h-24 hidden md:block">
                                 <svg width="100%" height="100%" viewBox="0 0 400 100" preserveAspectRatio="none">
-                                    <path d="M 200 0 V 30" stroke="#14b8a6" stroke-width="2.5"fill="none"/>
-                                    <path d="M 200 30 L 100 70" stroke="#14b8a6" stroke-width="2.5" fill="none"/>
-                                    <path d="M 200 30 L 300 70" stroke="#14b8a6" stroke-width="2.5" fill="none"/>
-                                    <polygon points="90,75 100,62 105,75" fill="#14b8a6" />
-                                    <polygon points="295,75 300,62 310,75" fill="#14b8a6" />
+                                    <path d="M 200 0 V 30" stroke="var(--accent-teal)" stroke-width="2.5" fill="none"/>
+                                    <path d="M 200 30 L 100 70" stroke="var(--accent-teal)" stroke-width="2.5" fill="none"/>
+                                    <path d="M 200 30 L 300 70" stroke="var(--accent-teal)" stroke-width="2.5" fill="none"/>
+                                    <polygon points="95,75 100,62 105,75" fill="var(--accent-teal)" />
+                                    <polygon points="295,75 300,62 305,75" fill="var(--accent-teal)" />
                                 </svg>
                         </div>
                     </div>
                 </div>
-                <div id="drop-zone" class="grid md:grid-cols-2 gap-8 text-center mt-16 md:mt-20">
+                <div class="grid md:grid-cols-2 gap-8 text-center mt-16 md:mt-20">
                     <div id="lc-ms-box" draggable="true" class="draggable-box inner-box-interactive p-6 rounded-lg">
                         <h4 class="text-xl font-bold mb-3 text-center" style="color: var(--text-main);">LC-MS Metabolomics</h4>
                         <p class="text-sm text-gray-600 font-normal text-justify">Combines <b>Liquid Chromatography</b> (separation) with <b>Mass Spectrometry</b> (detection). Ideal for <b>thermally unstable, less volatile, and larger molecules.</b></p>
@@ -306,47 +333,48 @@
             <div id="section-3" class="section-card rounded-2xl p-6 mb-12 fade-in-up">
                  <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">3. Key Advantages of multi-omics services</h2>
                  <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
-                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><i data-feather="clock"></i></div><div><h4 class="font-bold">Urgent Service</h4><p class="text-sm text-gray-600">Untargeted compounds analysis available <b> within 5 working days.</b></p></div></div>
-                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><i data-feather="activity"></i></div><div><h4 class="font-bold">High Sensitivity</h4><p class="text-sm text-gray-600">Up to <b>1 ppb</b> for caffeine standard and <b>0.6 ppb</b> for abscisic acid.</p></div></div>
-                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><i data-feather="cpu"></i></div><div><h4 class="font-bold">Advanced Equipment & Platforms</h4><p class="text-sm text-gray-600">Utilizes high-end equipment like the Orbitrap Exploris and <b>Thermo Q Exactive™ series</b> for high-resolution analysis.</p></div></div>
-                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><i data-feather="book-open"></i></div><div><h4 class="font-bold">Comprehensive & Accurate Annotation</h4><p class="text-sm text-gray-600">Employs multiple databases to achieve 100% annotation of detected substances with high accuracy. <b> Licensed databases are available. </b></p></div></div>
-                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><i data-feather="check-shield"></i></div><div><h4 class="font-bold">Reliable and Validated Results</h4><p class="text-sm text-gray-600">Ensures dependability through strict method validation and <b>multiple layers of quality control.</b></p></div></div>
-                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><i data-feather="sliders"></i></div><div><h4 class="font-bold">Flexible and Efficient Analysis</h4><p class="text-sm text-gray-600"><b>Allows one-time analysis with adjustable parameters</b>, avoiding the need to repeat experiments.</p></div></div>
-                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><i data-feather="link"></i></div><div><h4 class="font-bold">Powerful Multi-Omics Integration</h4><p class="text-sm text-gray-600">Full-target annotation provides comprehensive info for <b>integration with genomics and proteomics.</b></p></div></div>
-                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><i data-feather="help-circle"></i></div><div><h4 class="font-bold">Personalized Bioinformatics & Support</h4><p class="text-sm text-gray-600">A <b>professional team</b> provides customized data analysis and full after-sales service.</p></div></div>
-                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><i data-feather="share-2"></i></div><div><h4 class="font-bold">Comprehensive Biological Insight </h4><p class="text-sm text-gray-600">Combining <b>multi-omics data provides a complete, multi-layered view of biological processes</b>, allowing researchers to see the larger picture of how a system functions.</p></div></div>
-                     <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><i data-feather="settings"></i></div><div><h4 class="font-bold">Customized Services</h4><p class="text-sm text-gray-600">Peptide mapping for glycomics profiling, monoclonal antibody characterization, Neoantigen peptide mass spectrometry, LC-MS/MS for in vivo pharmacokinetics, and others.</p></div></div>
+                       <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><div><h4 class="font-bold">Urgent Service</h4><p class="text-sm text-gray-600">Untargeted compounds analysis available <b> within 5 working days.</b></p></div></div>
+                       <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div><div><h4 class="font-bold">High Sensitivity</h4><p class="text-sm text-gray-600">Up to <b>1 ppb</b> for caffeine standard and <b>0.6 ppb</b> for abscisic acid.</p></div></div>
+                       <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><div><h4 class="font-bold">Advanced Equipment & Platforms</h4><p class="text-sm text-gray-600">Utilizes high-end equipment like the Orbitrap Exploris and <b>Thermo Q Exactive™ series</b> for high-resolution analysis.</p></div></div>
+                       <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div><div><h4 class="font-bold">Comprehensive & Accurate Annotation</h4><p class="text-sm text-gray-600">Employs multiple databases to achieve 100% annotation of detected substances with high accuracy. <b> Licensed databases are available. </b></p></div></div>
+                       <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></div><div><h4 class="font-bold">Reliable and Validated Results</h4><p class="text-sm text-gray-600">Ensures dependability through strict method validation and <b>multiple layers of quality control.</b></p></div></div>
+                       <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg></div><div><h4 class="font-bold">Flexible and Efficient Analysis</h4><p class="text-sm text-gray-600"><b>Allows one-time analysis with adjustable parameters</b>, avoiding the need to repeat experiments.</p></div></div>
+                       <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"></path></svg></div><div><h4 class="font-bold">Powerful Multi-Omics Integration</h4><p class="text-sm text-gray-600">Full-target annotation provides comprehensive info for <b>integration with genomics and proteomics.</b></p></div></div>
+                       <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div><div><h4 class="font-bold">Personalized Bioinformatics & Support</h4><p class="text-sm text-gray-600">A <b>professional team</b> provides customized data analysis and full after-sales service.</p></div></div>
+                       <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></div><div><h4 class="font-bold">Comprehensive Biological Insight </h4><p class="text-sm text-gray-600">Combining <b>multi-omics data provides a complete, multi-layered view of biological processes</b>, allowing researchers to see the larger picture of how a system functions.</p></div></div>
+                       <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div><div><h4 class="font-bold">Customized Services</h4><p class="text-sm text-gray-600">Peptide mapping for glycomics profiling, monoclonal antibody characterization, Neoantigen peptide mass spectrometry, LC-MS/MS for in vivo pharmacokinetics, and others.</p></div></div>
                  </div>
             </div>
 
             <!-- Section 4: High-Level Research Process -->
             <div id="section-4" class="section-card rounded-2xl p-6 mb-12 overflow-x-auto fade-in-up">
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">4. High-Level Research Process</h2>
-                <div class="mb-24 flex justify-center">
-                    <img src="Picture/Flowchart.png" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-full h-auto rounded-lg shadow-md">
+                <div class="mb-8 flex justify-center">
+                    <img src="https://placehold.co/800x400/e9eef3/2D3047?text=Research+Process+Flowchart" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-full h-auto rounded-lg shadow-md">
                 </div>
-                 <!-- New Flowchart for Desktop -->
-                <div id="flowchart-desktop" class="hidden lg:block relative w-full max-w-5xl mx-auto my-8" style="height: 500px;">
-                    <!-- SVG connectors -->
-                    <svg class="absolute top-0 left-0 w-full h-full" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1100 500">
-                        <defs>
-                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="strokeWidth">
-                                <polygon points="0 0, 10 3.5, 0 7" fill="var(--timeline-gray)" />
-                            </marker>
-                        </defs>
-                <!-- Horizontal Timeline for Desktop -->
+                
+                <!-- Horizontal Timeline for Desktop (New Design) -->
                 <div id="timeline-desktop" class="horizontal-timeline timeline-container" style="min-width: 900px;">
                     <div class="timeline-line"></div>
-                    <div class="timeline-step bottom" data-step="1" style="left: 15%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-orange);">Experimental design</div></div>
-                    <div class="timeline-step top" data-step="2" style="left: 25%;"><div class="circle" style="background-color: var(--accent-teal);">Sample collection</div><div class="connector"></div></div>
-                    <div class="timeline-step bottom" data-step="3" style="left: 35%;"><div class="connector"></div><div class="circle" style="background-color: #a0a0a0;">Metabolite extraction</div></div>
-                    <div class="timeline-step top" data-step="4" style="left: 45%;"><div class="circle" style="background-color: var(--accent-orange);">Metabolite detection</div><div class="connector"></div></div>
-                    <div class="timeline-step bottom" data-step="5" style="left: 55%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-teal);">Data quality control</div></div>
-                    <div class="timeline-step top" data-step="6" style="left: 65%;"><div class="circle" style="background-color: #a0a0a0;">Data analysis</div><div class="connector"></div></div>
-                    <div class="timeline-step bottom" data-step="7" style="left: 75%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-orange);">Biological interpretation</div></div>
+                     <div class="timeline-start">
+                        <div class="w-40 h-40 flex items-center justify-center">
+                            <svg viewBox="0 0 100 100" class="w-full h-full">
+                                <polygon points="30,0 70,0 100,30 100,70 70,100 30,100 0,70 0,30" fill="#e5e7eb"/>
+                                <text x="50" y="55" font-family="'Chakra Petch', sans-serif" font-size="10" fill="#2D3047" text-anchor="middle" font-weight="600">Research Process</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="timeline-step bottom" data-step="1" style="left: 25%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-orange);">Experimental design</div></div>
+                    <div class="timeline-step top" data-step="2" style="left: 35%;"><div class="circle" style="background-color: var(--accent-teal);">Sample collection</div><div class="connector"></div></div>
+                    <div class="timeline-step bottom" data-step="3" style="left: 45%;"><div class="connector"></div><div class="circle" style="background-color: #a0a0a0;">Metabolite extraction</div></div>
+                    <div class="timeline-step top" data-step="4" style="left: 55%;"><div class="circle" style="background-color: var(--accent-orange);">Metabolite detection</div><div class="connector"></div></div>
+                    <div class="timeline-step bottom" data-step="5" style="left: 65%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-teal);">Data quality control</div></div>
+                    <div class="timeline-step top" data-step="6" style="left: 75%;"><div class="circle" style="background-color: #a0a0a0;">Data analysis</div><div class="connector"></div></div>
+                    <div class="timeline-step bottom" data-step="7" style="left: 85%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-orange);">Biological interpretation</div></div>
                 </div>
+
                 <!-- Vertical Timeline for Mobile/Tablet -->
-                <div id="timeline-mobile" class="vertical-timeline space-y-4 lg:hidden">
+                <div id="timeline-mobile" class="vertical-timeline space-y-4">
                     <details class="vertical-timeline-step" data-step="1"><summary><div class="vertical-timeline-circle">1</div><div class="vertical-timeline-content font-semibold">Experimental design</div></summary><div class="process-detail-view"></div></details>
                     <details class="vertical-timeline-step" data-step="2"><summary><div class="vertical-timeline-circle">2</div><div class="vertical-timeline-content font-semibold">Sample collection</div></summary><div class="process-detail-view"></div></details>
                     <details class="vertical-timeline-step" data-step="3"><summary><div class="vertical-timeline-circle">3</div><div class="vertical-timeline-content font-semibold">Metabolite extraction</div></summary><div class="process-detail-view"></div></details>
@@ -360,7 +388,7 @@
             </div>
 
             <!-- Section 5: Our experiences -->
-            <div id="section-5" class="section-card rounded-2xl p-6 mb-12 fade-in-up">
+            <div id="section-5" class="fade-in-up mb-12">
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">5. Case Studies & Specific Methodologies</h2>
                 <div class="space-y-12">
                     <!-- Case Study 1: Watermeal (Hyper-gravity) -->
@@ -388,9 +416,9 @@
                                         </ul>
                                         <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/WM1.png" alt="Chromatogram" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Chromatogram:</strong> Separates and displays detected chemical compounds as peaks over time.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/WM2.png" alt="Bubble Plot" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Bubble Plot:</strong> Shows the change in lipid amounts versus their statistical significance, where larger bubbles indicate more significant changes.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/WM3.png" alt="Heatmap" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Hierarchical Clustering:</strong> Compares metabolite abundance between the Control and Hyper-gravity groups using a color scale and clusters similar items together.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Chromatogram" alt="Chromatogram" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Chromatogram:</strong> Separates and displays detected chemical compounds as peaks over time.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Bubble+Plot" alt="Bubble Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Bubble Plot:</strong> Shows the change in lipid amounts versus their statistical significance, where larger bubbles indicate more significant changes.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Heatmap" alt="Heatmap" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Hierarchical Clustering:</strong> Compares metabolite abundance between the Control and Hyper-gravity groups using a color scale and clusters similar items together.</p></div>
                                         </div>
                                     </div>
                                 </div>
@@ -422,16 +450,16 @@
                                         </ul>
                                         <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/MouseCovid1.png" alt="Volcano Plot" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Volcano Plot:</strong> Identifies significant molecular changes by plotting their magnitude (fold change) against statistical significance (p-value).</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/MouseCovid2.png" alt="Network/Pathway Analysis" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Pathway Analysis:</strong> Shows connections between key genes/proteins and their biological pathways to understand the functional impact of changes.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/MouseCovid3.png" alt="Correlation Heatmap" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Correlation Heatmap:</strong> Visualizes the similarity and reproducibility between all samples, with color indicating the strength of the correlation.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Volcano+Plot" alt="Volcano Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Volcano Plot:</strong> Identifies significant molecular changes by plotting their magnitude (fold change) against statistical significance (p-value).</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Pathway+Analysis" alt="Network/Pathway Analysis" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Pathway Analysis:</strong> Shows connections between key genes/proteins and their biological pathways to understand the functional impact of changes.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Correlation+Heatmap" alt="Correlation Heatmap" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Correlation Heatmap:</strong> Visualizes the similarity and reproducibility between all samples, with color indicating the strength of the correlation.</p></div>
                                         </div>
                                     </div>
                                 </div>
                             </details>
                         </div>
                     </div>
-                    <!-- Case Study 3: Serum -->
+                     <!-- Case Study 3: Serum -->
                     <div class="case-study-card rounded-2xl p-6 shadow-lg">
                         <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">Clinical samples (Human serum) with MAFLD</h3>
                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
@@ -457,16 +485,16 @@
                                         </ul>
                                         <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Serum1.png" alt="Box Plot" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Box Plot:</strong> Compares the distribution and consistency of all measured metabolites between the MAFLD and MAFLD with HIV groups.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/serum2.png" alt="PCA Plot" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>PCA Plot:</strong> Visualizes sample clustering to see if groups separate based on their overall metabolic profile.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/serum3.png" alt="S-Plot" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>S-Plot:</strong> Identifies the key metabolites that are most responsible for the group separation seen in the PCA plot.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Box+Plot" alt="Box Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Box Plot:</strong> Compares the distribution and consistency of all measured metabolites between the MAFLD and MAFLD with HIV groups.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=PCA+Plot" alt="PCA Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>PCA Plot:</strong> Visualizes sample clustering to see if groups separate based on their overall metabolic profile.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=S-Plot" alt="S-Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>S-Plot:</strong> Identifies the key metabolites that are most responsible for the group separation seen in the PCA plot.</p></div>
                                         </div>
                                     </div>
                                 </div>
                             </details>
                         </div>
                     </div>
-                    <!-- Case Study 4: Mushroom -->
+                     <!-- Case Study 4: Mushroom -->
                     <div class="case-study-card rounded-2xl p-6 shadow-lg">
                         <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">Golden mushroom: Metabolomics with AI-pharmacokinetic prediction</h3>
                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
@@ -492,16 +520,16 @@
                                         </ul>
                                         <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Mushroom1.png" alt="PCA Plot of Metabolite Clusters" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Mass Spectrum: </strong> This plot identifies individual compounds by their unique mass-to-charge ratio (m/z), which helps confirm their chemical structure.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Mushroom2.png" alt="Docking Pose of Lead Compound" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Enzyme Inhibition Assay:</strong> This chart shows that the mushroom extract significantly reduces the activity of key anti-diabetic enzymes, demonstrating its inhibitory potential.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Mushroom3.png" alt="Enzyme Inhibition Chart" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong> PCA-Plot:</strong> This plot clusters metabolites based on their drug-like properties, helping to visually identify groups of promising compounds for further investigation.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Mass+Spectrum" alt="PCA Plot of Metabolite Clusters" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Mass Spectrum: </strong> This plot identifies individual compounds by their unique mass-to-charge ratio (m/z), which helps confirm their chemical structure.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Enzyme+Inhibition" alt="Docking Pose of Lead Compound" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Enzyme Inhibition Assay:</strong> This chart shows that the mushroom extract significantly reduces the activity of key anti-diabetic enzymes, demonstrating its inhibitory potential.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=PCA-Plot" alt="Enzyme Inhibition Chart" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong> PCA-Plot:</strong> This plot clusters metabolites based on their drug-like properties, helping to visually identify groups of promising compounds for further investigation.</p></div>
                                         </div>
                                     </div>
                                 </div>
                             </details>
                         </div>
                     </div>
-                    <!-- Case Study 5: Water -->
+                     <!-- Case Study 5: Water -->
                     <div class="case-study-card rounded-2xl p-6 shadow-lg">
                         <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">leaching precious metals from waste printed circuit boards: Metabolomics</h3>
                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
@@ -528,9 +556,9 @@
                                         </ul>
                                         <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Water1.png" alt="Schematic of Bioleaching Process" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Bioleaching Efficiency: </strong> This chart compares how effectively different bacteria extract copper from electronic waste, highlighting that the C. funkei strain performs best among the single cultures.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Water2.png" alt="Effect of Pretreatment on Gold Leaching" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Stepwise Bioleaching Comparison: </strong> This chart demonstrates that a multi-step leaching process (right side) extracts significantly more copper than any single-step method (left side).</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Water3.png" alt="Metabolite Heat Map" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong> Hierarchical Clustering: </strong> This heat map compares metabolite abundance across different bacterial cultures and a control. It clusters groups with similar profiles, revealing the unique chemical signature of each bacterium</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Bioleaching+Efficiency" alt="Schematic of Bioleaching Process" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Bioleaching Efficiency: </strong> This chart compares how effectively different bacteria extract copper from electronic waste, highlighting that the C. funkei strain performs best among the single cultures.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Stepwise+Comparison" alt="Effect of Pretreatment on Gold Leaching" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Stepwise Bioleaching Comparison: </strong> This chart demonstrates that a multi-step leaching process (right side) extracts significantly more copper than any single-step method (left side).</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Clustering+Heatmap" alt="Metabolite Heat Map" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong> Hierarchical Clustering: </strong> This heat map compares metabolite abundance across different bacterial cultures and a control. It clusters groups with similar profiles, revealing the unique chemical signature of each bacterium</p></div>
                                         </div>
                                     </div>
                                 </div>
@@ -547,20 +575,20 @@
                     <form action="https://formspree.io/f/mjkrzzzg" method="POST">
                         <div class="mb-4">
                             <label for="name" class="block text-lg font-semibold mb-2">Your Name</label>
-                            <input type="text" id="name" name="name" class="w-full p-3 bg-white/80 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent" placeholder="e.g., Sucheewin Krobthong, Ph.D.," required>
+                            <input type="text" id="name" name="name" class="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent" placeholder="e.g., Sucheewin Krobthong, Ph.D.," required>
                         </div>
 
                         <div class="mb-4">
                             <label for="email" class="block text-lg font-semibold mb-2">Your Email</label>
-                            <input type="email" id="email" name="email" class="w-full p-3 bg-white/80 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent" placeholder="e.g., sucheewin82@gmail.com" required>
+                            <input type="email" id="email" name="email" class="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent" placeholder="e.g., sucheewin82@gmail.com" required>
                         </div>
 
                         <div class="mb-4">
                             <label for="comment" class="block text-lg font-semibold mb-2">Message section</label>
-                            <textarea id="comment" name="comment" rows="4" class="w-full p-3 bg-white/80 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent" placeholder="This form sending your message to Sucheewin Krobthong, Ph.D., Research consultant" required></textarea>
+                            <textarea id="comment" name="comment" rows="4" class="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent" placeholder="This form sending your message to Sucheewin Krobthong, Ph.D., Research consultant" required></textarea>
                         </div>
                         <div class="text-right">
-                            <button type="submit" class="px-8 py-3 font-bold text-white rounded-full transition-all hover:scale-105" style="background: linear-gradient(90deg, var(--accent-orange), var(--accent-terracotta));">Submit</button>
+                            <button type="submit" class="px-8 py-3 font-bold text-white rounded-full transition-all hover:scale-105" style="background-color: var(--accent-orange);">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -594,11 +622,6 @@
             });
 
             // ===================================
-            // Initialize Feather Icons
-            // ===================================
-            feather.replace();
-
-            // ===================================
             // Data for the research process
             // ===================================
             const processDetails = {
@@ -612,15 +635,15 @@
             };
 
             // ===================================
-            // Interactive Timeline & Flowchart Logic
+            // Interactive Timeline Logic
             // ===================================
-            const flowchartDesktop = document.getElementById('flowchart-desktop');
+            const timelineDesktop = document.getElementById('timeline-desktop');
             const timelineMobile = document.getElementById('timeline-mobile');
             const detailContainer = document.getElementById('process-detail-container');
 
             function showDesktopDetails(step) {
-                const currentActive = flowchartDesktop.querySelector('.flowchart-step.active');
-
+                const currentActive = timelineDesktop.querySelector('.timeline-step.active');
+                
                 if (currentActive && currentActive.dataset.step === step) {
                     detailContainer.innerHTML = '';
                     currentActive.classList.remove('active');
@@ -628,11 +651,12 @@
                 }
 
                 detailContainer.innerHTML = '';
-                flowchartDesktop.querySelectorAll('.flowchart-step').forEach(el => el.classList.remove('active'));
+                timelineDesktop.querySelectorAll('.timeline-step').forEach(el => el.classList.remove('active'));
                 
                 if (processDetails[step]) {
-                    const stepElement = flowchartDesktop.querySelector(`.flowchart-step[data-step="${step}"]`);
+                    const stepElement = timelineDesktop.querySelector(`.timeline-step[data-step="${step}"]`);
                     stepElement.classList.add('active');
+                    
                     const detailData = processDetails[step];
                     const detailElement = document.createElement('div');
                     detailElement.className = 'process-detail-view fade-in-up is-visible';
@@ -659,9 +683,9 @@
                 });
             }
 
-            if (flowchartDesktop) {
-                flowchartDesktop.addEventListener('click', e => {
-                    const stepElement = e.target.closest('.flowchart-step');
+            if (timelineDesktop) {
+                timelineDesktop.addEventListener('click', e => {
+                    const stepElement = e.target.closest('.timeline-step');
                     if (stepElement) showDesktopDetails(stepElement.dataset.step);
                 });
             }
@@ -733,16 +757,18 @@
                 animationObserver.observe(el);
             });
 
-            // Draggable elements logic (unchanged)
-            const draggables = document.querySelectorAll('.draggable-box');
-            draggables.forEach(draggable => {
-                draggable.addEventListener('dragstart', () => {
-                    draggable.classList.add('dragging');
-                });
-                draggable.addEventListener('dragend', () => {
-                    draggable.classList.remove('dragging');
-                });
-            });
+            // ===================================
+            // Draggable Elements Logic
+            // ===================================
+             const draggables = document.querySelectorAll('.draggable-box');
+             draggables.forEach(draggable => {
+                 draggable.addEventListener('dragstart', () => {
+                     draggable.classList.add('dragging');
+                 });
+                 draggable.addEventListener('dragend', () => {
+                     draggable.classList.remove('dragging');
+                 });
+             });
         });
     </script>
 </body>
