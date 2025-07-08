@@ -334,37 +334,17 @@
                                 <polygon points="0 0, 10 3.5, 0 7" fill="var(--timeline-gray)" />
                             </marker>
                         </defs>
-                        <!-- Connectors from Octagon to steps -->
-                        <path d="M 480 250 Q 300 270 250 350" stroke="var(--timeline-gray)" stroke-width="2" fill="none" stroke-dasharray="5, 5" marker-end="url(#arrowhead)"></path> <!-- to step 1 -->
-                        <path d="M 520 295 Q 400 350 400 400" stroke="var(--timeline-gray)" stroke-width="2" fill="none" stroke-dasharray="5, 5" marker-end="url(#arrowhead)"></path> <!-- to step 3 -->
-                        <path d="M 580 295 Q 700 350 700 400" stroke="var(--timeline-gray)" stroke-width="2" fill="none" stroke-dasharray="5, 5" marker-end="url(#arrowhead)"></path> <!-- to step 5 -->
-                        <path d="M 620 250 Q 800 270 850 350" stroke="var(--timeline-gray)" stroke-width="2" fill="none" stroke-dasharray="5, 5" marker-end="url(#arrowhead)"></path> <!-- to step 7 -->
-                        
-                        <path d="M 480 220 Q 350 180 350 100" stroke="var(--timeline-gray)" stroke-width="2" fill="none" stroke-dasharray="5, 5" marker-end="url(#arrowhead)"></path> <!-- to step 2 -->
-                        <path d="M 550 200 Q 550 150 550 80" stroke="var(--timeline-gray)" stroke-width="2" fill="none" stroke-dasharray="5, 5" marker-end="url(#arrowhead)"></path> <!-- to step 4 -->
-                        <path d="M 620 220 Q 750 180 750 100" stroke="var(--timeline-gray)" stroke-width="2" fill="none" stroke-dasharray="5, 5" marker-end="url(#arrowhead)"></path> <!-- to step 6 -->
-                    </svg>
-
-                    <!-- Central Octagon -->
-                    <div class="absolute z-10" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                        <div class="w-48 h-48 flex items-center justify-center">
-                            <svg viewBox="0 0 100 100" class="w-full h-full filter drop-shadow-lg">
-                                <polygon points="30,0 70,0 100,30 100,70 70,100 30,100 0,70 0,30" fill="#e2e8f0"/>
-                                <text x="50" y="50" font-family="'Chakra Petch', sans-serif" font-size="10" fill="#1f2937" text-anchor="middle" font-weight="600">Research<tspan x="50" dy="12">Process</tspan></text>
-                            </svg>
-                        </div>
-                    </div>
-                    <!-- Step Ovals -->
-                    <div class="flowchart-step" data-step="1" style="left: 16%; top: 68%;"><div class="flowchart-oval" style="background-color: var(--accent-orange);">Experimental design</div></div>
-                    <div class="flowchart-step" data-step="3" style="left: 30%; top: 80%;"><div class="flowchart-oval" style="background-color: #bdc3c7;">Metabolite extraction</div></div>
-                    <div class="flowchart-step" data-step="5" style="left: 55%; top: 80%;"><div class="flowchart-oval" style="background-color: var(--accent-teal);">Data quality control</div></div>
-                    <div class="flowchart-step" data-step="7" style="left: 69%; top: 68%;"><div class="flowchart-oval" style="background-color: var(--accent-orange);">Biological interpretation</div></div>
-                    
-                    <div class="flowchart-step" data-step="2" style="left: 25%; top: 10%;"><div class="flowchart-oval" style="background-color: var(--accent-teal);">Sample collection</div></div>
-                    <div class="flowchart-step" data-step="4" style="left: 43%; top: 0%;"><div class="flowchart-oval" style="background-color: var(--accent-orange);">Metabolite detection</div></div>
-                    <div class="flowchart-step" data-step="6" style="left: 61%; top: 10%;"><div class="flowchart-oval" style="background-color: #bdc3c7;">Data analysis</div></div>
+                <!-- Horizontal Timeline for Desktop -->
+                <div id="timeline-desktop" class="horizontal-timeline timeline-container" style="min-width: 900px;">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-step bottom" data-step="1" style="left: 15%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-orange);">Experimental design</div></div>
+                    <div class="timeline-step top" data-step="2" style="left: 25%;"><div class="circle" style="background-color: var(--accent-teal);">Sample collection</div><div class="connector"></div></div>
+                    <div class="timeline-step bottom" data-step="3" style="left: 35%;"><div class="connector"></div><div class="circle" style="background-color: #a0a0a0;">Metabolite extraction</div></div>
+                    <div class="timeline-step top" data-step="4" style="left: 45%;"><div class="circle" style="background-color: var(--accent-orange);">Metabolite detection</div><div class="connector"></div></div>
+                    <div class="timeline-step bottom" data-step="5" style="left: 55%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-teal);">Data quality control</div></div>
+                    <div class="timeline-step top" data-step="6" style="left: 65%;"><div class="circle" style="background-color: #a0a0a0;">Data analysis</div><div class="connector"></div></div>
+                    <div class="timeline-step bottom" data-step="7" style="left: 75%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-orange);">Biological interpretation</div></div>
                 </div>
-
                 <!-- Vertical Timeline for Mobile/Tablet -->
                 <div id="timeline-mobile" class="vertical-timeline space-y-4 lg:hidden">
                     <details class="vertical-timeline-step" data-step="1"><summary><div class="vertical-timeline-circle">1</div><div class="vertical-timeline-content font-semibold">Experimental design</div></summary><div class="process-detail-view"></div></details>
