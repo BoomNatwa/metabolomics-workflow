@@ -347,19 +347,19 @@
             </div>
 
             <!-- Section 4: High-Level Research Process -->
-            <div id="section-4" class="section-card rounded-2xl p-6 mb-12 overflow-x-auto fade-in-up">
+            <div id="section-4" class="section-card rounded-2xl p-6 mb-12 overflow-x-auto">
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">4. High-Level Research Process</h2>
-                <div class="mb-8 flex justify-center">
-                    <img src="https://placehold.co/800x400/e9eef3/2D3047?text=Research+Process+Flowchart" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-full h-auto rounded-lg shadow-md">
+                <div class="mb-24 flex justify-center"> <!-- Increased margin-bottom for more space -->
+                    <img src="Picture/Flowchart.png" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-full h-full rounded-lg shadow-md">
                 </div>
-                
-                <!-- Horizontal Timeline for Desktop (New Design) -->
+                <!-- Horizontal Timeline for Desktop -->
                 <div id="timeline-desktop" class="horizontal-timeline timeline-container" style="min-width: 900px;">
                     <div class="timeline-line"></div>
-                     <div class="timeline-start">
+                    <div class="timeline-start">
                         <div class="w-40 h-40 flex items-center justify-center">
                             <svg viewBox="0 0 100 100" class="w-full h-full">
                                 <polygon points="30,0 70,0 100,30 100,70 70,100 30,100 0,70 0,30" fill="#e5e7eb"/>
+                                <!-- Updated font-family in SVG -->
                                 <text x="50" y="55" font-family="'Chakra Petch', sans-serif" font-size="10" fill="#2D3047" text-anchor="middle" font-weight="600">Research Process</text>
                             </svg>
                         </div>
@@ -372,7 +372,6 @@
                     <div class="timeline-step top" data-step="6" style="left: 75%;"><div class="circle" style="background-color: #a0a0a0;">Data analysis</div><div class="connector"></div></div>
                     <div class="timeline-step bottom" data-step="7" style="left: 85%;"><div class="connector"></div><div class="circle" style="background-color: var(--accent-orange);">Biological interpretation</div></div>
                 </div>
-
                 <!-- Vertical Timeline for Mobile/Tablet -->
                 <div id="timeline-mobile" class="vertical-timeline space-y-4">
                     <details class="vertical-timeline-step" data-step="1"><summary><div class="vertical-timeline-circle">1</div><div class="vertical-timeline-content font-semibold">Experimental design</div></summary><div class="process-detail-view"></div></details>
@@ -384,8 +383,13 @@
                     <details class="vertical-timeline-step" data-step="7"><summary><div class="vertical-timeline-circle">7</div><div class="vertical-timeline-content font-semibold">Biological interpretation</div></summary><div class="process-detail-view"></div></details>
                 </div>
                 
+                <div class="hidden lg:block">
+                    <hr class="mt-8 border-t border-white" /> 
+                </div>
+
                 <div id="process-detail-container" class="mt-8"></div>
             </div>
+
 
             <!-- Section 5: Our experiences -->
             <div id="section-5" class="fade-in-up mb-12">
@@ -416,9 +420,9 @@
                                         </ul>
                                         <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Chromatogram" alt="Chromatogram" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Chromatogram:</strong> Separates and displays detected chemical compounds as peaks over time.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Bubble+Plot" alt="Bubble Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Bubble Plot:</strong> Shows the change in lipid amounts versus their statistical significance, where larger bubbles indicate more significant changes.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Heatmap" alt="Heatmap" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Hierarchical Clustering:</strong> Compares metabolite abundance between the Control and Hyper-gravity groups using a color scale and clusters similar items together.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/WM1.png" alt="Chromatogram" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Chromatogram:</strong> Separates and displays detected chemical compounds as peaks over time.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/WM2.png" alt="Bubble Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Bubble Plot:</strong> Shows the change in lipid amounts versus their statistical significance, where larger bubbles indicate more significant changes.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/WM3.png" alt="Heatmap" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Hierarchical Clustering:</strong> Compares metabolite abundance between the Control and Hyper-gravity groups using a color scale and clusters similar items together.</p></div>
                                         </div>
                                     </div>
                                 </div>
@@ -450,9 +454,9 @@
                                         </ul>
                                         <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Volcano+Plot" alt="Volcano Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Volcano Plot:</strong> Identifies significant molecular changes by plotting their magnitude (fold change) against statistical significance (p-value).</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Pathway+Analysis" alt="Network/Pathway Analysis" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Pathway Analysis:</strong> Shows connections between key genes/proteins and their biological pathways to understand the functional impact of changes.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Correlation+Heatmap" alt="Correlation Heatmap" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Correlation Heatmap:</strong> Visualizes the similarity and reproducibility between all samples, with color indicating the strength of the correlation.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/MouseCovid1.png" alt="Volcano Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Volcano Plot:</strong> Identifies significant molecular changes by plotting their magnitude (fold change) against statistical significance (p-value).</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/MouseCovid2.png" alt="Network/Pathway Analysis" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Pathway Analysis:</strong> Shows connections between key genes/proteins and their biological pathways to understand the functional impact of changes.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/MouseCovid3.png" alt="Correlation Heatmap" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Correlation Heatmap:</strong> Visualizes the similarity and reproducibility between all samples, with color indicating the strength of the correlation.</p></div>
                                         </div>
                                     </div>
                                 </div>
@@ -485,9 +489,9 @@
                                         </ul>
                                         <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Box+Plot" alt="Box Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Box Plot:</strong> Compares the distribution and consistency of all measured metabolites between the MAFLD and MAFLD with HIV groups.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=PCA+Plot" alt="PCA Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>PCA Plot:</strong> Visualizes sample clustering to see if groups separate based on their overall metabolic profile.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=S-Plot" alt="S-Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>S-Plot:</strong> Identifies the key metabolites that are most responsible for the group separation seen in the PCA plot.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Serum1.png" alt="Box Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Box Plot:</strong> Compares the distribution and consistency of all measured metabolites between the MAFLD and MAFLD with HIV groups.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/serum2.png" alt="PCA Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>PCA Plot:</strong> Visualizes sample clustering to see if groups separate based on their overall metabolic profile.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/serum3.png" alt="S-Plot" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>S-Plot:</strong> Identifies the key metabolites that are most responsible for the group separation seen in the PCA plot.</p></div>
                                         </div>
                                     </div>
                                 </div>
@@ -520,9 +524,9 @@
                                         </ul>
                                         <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Mass+Spectrum" alt="PCA Plot of Metabolite Clusters" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Mass Spectrum: </strong> This plot identifies individual compounds by their unique mass-to-charge ratio (m/z), which helps confirm their chemical structure.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Enzyme+Inhibition" alt="Docking Pose of Lead Compound" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Enzyme Inhibition Assay:</strong> This chart shows that the mushroom extract significantly reduces the activity of key anti-diabetic enzymes, demonstrating its inhibitory potential.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=PCA-Plot" alt="Enzyme Inhibition Chart" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong> PCA-Plot:</strong> This plot clusters metabolites based on their drug-like properties, helping to visually identify groups of promising compounds for further investigation.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Mushroom1.png" alt="PCA Plot of Metabolite Clusters" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Mass Spectrum: </strong> This plot identifies individual compounds by their unique mass-to-charge ratio (m/z), which helps confirm their chemical structure.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Mushroom2.png" alt="Docking Pose of Lead Compound" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Enzyme Inhibition Assay:</strong> This chart shows that the mushroom extract significantly reduces the activity of key anti-diabetic enzymes, demonstrating its inhibitory potential.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Mushroom3.png" alt="Enzyme Inhibition Chart" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong> PCA-Plot:</strong> This plot clusters metabolites based on their drug-like properties, helping to visually identify groups of promising compounds for further investigation.</p></div>
                                         </div>
                                     </div>
                                 </div>
@@ -556,9 +560,9 @@
                                         </ul>
                                         <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Bioleaching+Efficiency" alt="Schematic of Bioleaching Process" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Bioleaching Efficiency: </strong> This chart compares how effectively different bacteria extract copper from electronic waste, highlighting that the C. funkei strain performs best among the single cultures.</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Stepwise+Comparison" alt="Effect of Pretreatment on Gold Leaching" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Stepwise Bioleaching Comparison: </strong> This chart demonstrates that a multi-step leaching process (right side) extracts significantly more copper than any single-step method (left side).</p></div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="https://placehold.co/300x200/FFD5C2/2D3047?text=Clustering+Heatmap" alt="Metabolite Heat Map" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong> Hierarchical Clustering: </strong> This heat map compares metabolite abundance across different bacterial cultures and a control. It clusters groups with similar profiles, revealing the unique chemical signature of each bacterium</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Water1.png" alt="Schematic of Bioleaching Process" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Bioleaching Efficiency: </strong> This chart compares how effectively different bacteria extract copper from electronic waste, highlighting that the C. funkei strain performs best among the single cultures.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Water2.png" alt="Effect of Pretreatment on Gold Leaching" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Stepwise Bioleaching Comparison: </strong> This chart demonstrates that a multi-step leaching process (right side) extracts significantly more copper than any single-step method (left side).</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Water3.png" alt="Metabolite Heat Map" class="w-full h-auto rounded-lg shadow-md"><p class="text-xs mt-2 text-gray-600 text-left"><strong> Hierarchical Clustering: </strong> This heat map compares metabolite abundance across different bacterial cultures and a control. It clusters groups with similar profiles, revealing the unique chemical signature of each bacterium</p></div>
                                         </div>
                                     </div>
                                 </div>
