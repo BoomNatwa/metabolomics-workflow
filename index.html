@@ -35,6 +35,7 @@
             font-family: 'Chakra Petch', sans-serif;
             background-color: var(--bg-main);
             color: var(--text-main);
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         /* ========================================
@@ -66,7 +67,7 @@
             color: white;
             font-weight: 700;
             box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
-            transform: translateX(5px);
+            transform: translateX(5px) scale(1.02);
         }
         .sidebar-link {
             transition: all 0.2s ease-in-out;
@@ -171,6 +172,25 @@
                 box-shadow: 0 0 20px var(--accent-orange);
             }
         }
+        /* Vertical timeline styles from original code */
+        @media (max-width: 1023px) {
+            .horizontal-timeline { display: none; }
+            .vertical-timeline { position: relative; padding-left: 1.5rem; border-left: 2px solid var(--timeline-gray); margin-left: 1.25rem; }
+            .vertical-timeline-step summary::-webkit-details-marker { display: none; }
+            .vertical-timeline-step summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 1rem; position: relative; }
+            .vertical-timeline-circle {
+                position: absolute; left: -2.8rem; top: 50%; transform: translateY(-50%); width: 2.5rem; height: 2.5rem;
+                border-radius: 50%; background-color: white; border: 2px solid var(--accent-teal); display: flex;
+                align-items: center; justify-content: center; font-weight: 700; color: var(--accent-teal); transition: all 0.2s;
+            }
+            .vertical-timeline-content { flex-grow: 1; padding: 0.75rem 1rem; background-color: #f7f7f7; border-radius: 0.5rem; border: 1px solid var(--border-light); }
+            details[open].vertical-timeline-step .vertical-timeline-circle { background-color: var(--accent-terracotta); color: white; border-color: var(--accent-terracotta); }
+            details[open].vertical-timeline-step .vertical-timeline-content { border-color: var(--accent-orange); }
+        }
+        .process-detail-view { background-color: #f7f8fa; border: 1px solid var(--border-light); border-radius: 0.75rem; padding: 1.5rem; margin-top: 1.5rem; }
+        .process-detail-view h3 { font-size: 1.25rem; font-weight: 700; color: var(--accent-teal); margin-bottom: 1rem; }
+        .process-detail-view h4 { font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; color: var(--accent-orange); }
+        .process-detail-view ul { list-style-type: disc; padding-left: 1.5rem; font-size: 0.875rem; color: #4b5563; }
     </style>
 </head>
 <body class="p-4 sm:p-6 lg:p-10">
@@ -209,7 +229,6 @@
             <!-- All sections will have the 'fade-in-up' class for scroll animation -->
             <!-- Section 1: Core Technologies -->
             <div id="section-1" class="section-card rounded-2xl p-6 mb-12 fade-in-up">
-                <!-- Content is the same as user provided -->
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">1. Background & Core Technologies</h2>
                 <div class="text-center mb-8">
                     <div class="relative inline-block">
@@ -242,7 +261,6 @@
 
             <!-- Section 2: Application Fields -->
             <div id="section-2" class="section-card rounded-2xl p-6 mb-12 fade-in-up">
-                 <!-- Content is the same as user provided -->
                  <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">2. Application Fields</h2>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="inner-box-interactive p-6 rounded-lg">
@@ -286,7 +304,6 @@
 
             <!-- Section 3: Advantages -->
             <div id="section-3" class="section-card rounded-2xl p-6 mb-12 fade-in-up">
-                 <!-- Content is the same as user provided, but icons will be replaced by Feather Icons -->
                  <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">3. Key Advantages of multi-omics services</h2>
                  <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
                      <div class="advantage-item inner-box-interactive p-6 rounded-lg"><div class="advantage-icon"><i data-feather="clock"></i></div><div><h4 class="font-bold">Urgent Service</h4><p class="text-sm text-gray-600">Untargeted compounds analysis available <b> within 5 working days.</b></p></div></div>
@@ -304,10 +321,9 @@
 
             <!-- Section 4: High-Level Research Process -->
             <div id="section-4" class="section-card rounded-2xl p-6 mb-12 overflow-x-auto fade-in-up">
-                <!-- Content is the same as user provided -->
                 <h2 class="text-2xl lg:text-3xl font-bold text-center mb-8" style="color: var(--text-main);">4. High-Level Research Process</h2>
                 <div class="mb-24 flex justify-center">
-                    <img src="Picture/Flowchart.png" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-full h-full rounded-lg shadow-md">
+                    <img src="Picture/Flowchart.png" alt="Illustrative diagram showing sample collection, LC/GC-MS analysis, and data analysis steps." class="max-w-full h-auto rounded-lg shadow-md">
                 </div>
                 <!-- Horizontal Timeline for Desktop -->
                 <div id="timeline-desktop" class="horizontal-timeline timeline-container" style="min-width: 900px;">
@@ -354,7 +370,6 @@
                     <!-- Case Study 1: Watermeal (Hyper-gravity) -->
                     <div class="case-study-card rounded-2xl p-6 shadow-lg">
                         <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">Watermeal (Hyper-gravity): Metabolomics & Lipidomics</h3>
-                        <!-- Grid content remains the same -->
                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
                             <div><strong class="block text-base font-bold">Extraction</strong><p class="font-normal">Methanol/formic acid, SPE cleanup.</p></div>
                             <div><strong class="block text-base font-bold">LC-MS System</strong><p class="font-normal">Thermo Q-Exactive Orbitrap.</p></div>
@@ -369,7 +384,6 @@
                                 <summary class="results-summary-button">View Key Results <span class="summary-arrow ml-2 inline-block">&#9654;</span></summary>
                                 <div class="results-content-wrapper">
                                     <div class="results-content">
-                                        <!-- Content is the same -->
                                         <h4 class="font-bold mb-2">Key Findings:</h4>
                                         <ul class="list-disc list-inside text-sm space-y-1">
                                             <li><b>Hyper-gravity</b> induced significant changes in <b>amino acid metabolism</b>, particularly proline and arginine, indicating a stress response.</li>
@@ -378,25 +392,155 @@
                                         </ul>
                                         <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
-                                                <img src="Picture/WM1.png" alt="Chromatogram" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'">
-                                                <p class="text-xs mt-2 text-gray-600 text-left"><strong>Chromatogram:</strong> Separates and displays detected chemical compounds as peaks over time.</p>
-                                            </div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
-                                                <img src="Picture/WM2.png" alt="Bubble Plot" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'">
-                                                <p class="text-xs mt-2 text-gray-600 text-left"><strong>Bubble Plot:</strong> Shows the change in lipid amounts versus their statistical significance, where larger bubbles indicate more significant changes.</p>
-                                            </div>
-                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
-                                                <img src="Picture/WM3.png" alt="Heatmap" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'">
-                                                <p class="text-xs mt-2 text-gray-600 text-left"><strong>Hierarchical Clustering:</strong> Compares metabolite abundance between the Control and Hyper-gravity groups using a color scale and clusters similar items together.</p>
-                                            </div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/WM1.png" alt="Chromatogram" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Chromatogram:</strong> Separates and displays detected chemical compounds as peaks over time.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/WM2.png" alt="Bubble Plot" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Bubble Plot:</strong> Shows the change in lipid amounts versus their statistical significance, where larger bubbles indicate more significant changes.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/WM3.png" alt="Heatmap" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Hierarchical Clustering:</strong> Compares metabolite abundance between the Control and Hyper-gravity groups using a color scale and clusters similar items together.</p></div>
                                         </div>
                                     </div>
                                 </div>
                             </details>
                         </div>
                     </div>
-                    <!-- Other case studies follow the same structure -->
+                    <!-- Case Study 2: COVID -->
+                    <div class="case-study-card rounded-2xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">SARS-CoV-2 in hamster model: Proteomics & Metabolomics</h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                            <div><strong class="block text-base font-bold">Proteomics Prep</strong><p class="font-normal"><b>EasyPep™ Kit</b>, Trypsin/Lys-C digestion.</p></div>
+                            <div><strong class="block text-base font-bold">Metabolomics Prep</strong><p class="font-normal">Methanol mixture extraction.</p></div>
+                            <div><strong class="block text-base font-bold">LC-MS System</strong><p class="font-normal"><b>Orbitrap Exploris™ 480</b>.</p></div>
+                            <div><strong class="block text-base font-bold">Columns</strong><p class="font-normal"><b>PepMap™</b> (Proteomics), <b>Accucore C18</b> (Metabolomics).</p></div>
+                            <div><strong class="block text-base font-bold">Data Software</strong><p class="font-normal">Proteome Discoverer, Compound Discoverer.</p></div>
+                            <div><strong class="block text-base font-bold">Databases</strong><p class="font-normal">UniProt, mzCloud, ChemSpider.</p></div>
+                            <div><strong class="block text-base font-bold">Statistics</strong><p class="font-normal">SEQUEST™ HT, 1% FDR, t-tests.</p></div>
+                        </div>
+                        <div class="mt-6">
+                            <details class="smooth-accordion">
+                                <summary class="results-summary-button">View Key Results <span class="summary-arrow ml-2 inline-block">&#9654;</span></summary>
+                                <div class="results-content-wrapper">
+                                    <div class="results-content">
+                                        <h4 class="font-bold mb-2">Key Findings:</h4>
+                                        <ul class="list-disc list-inside text-sm space-y-1">
+                                            <li>Proteomics identified significant upregulation of proteins involved in <b>neuro-inflammatory pathways</b> (e.g., IFN signaling) in response to both variants, with a stronger response to Delta.</li>
+                                            <li>Metabolomics revealed a disruption in <b>brain energy metabolism</b>, including altered levels of TCA cycle intermediates and neurotransmitter precursors like tryptophan.</li>
+                                            <li>Integrated analysis showed a correlation between specific viral proteins and host metabolic dysregulation, pointing to potential mechanisms of <b>neuropathology</b>.</li>
+                                        </ul>
+                                        <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/MouseCovid1.png" alt="Volcano Plot" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Volcano Plot:</strong> Identifies significant molecular changes by plotting their magnitude (fold change) against statistical significance (p-value).</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/MouseCovid2.png" alt="Network/Pathway Analysis" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Pathway Analysis:</strong> Shows connections between key genes/proteins and their biological pathways to understand the functional impact of changes.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/MouseCovid3.png" alt="Correlation Heatmap" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Correlation Heatmap:</strong> Visualizes the similarity and reproducibility between all samples, with color indicating the strength of the correlation.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                    <!-- Case Study 3: Serum -->
+                    <div class="case-study-card rounded-2xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">Clinical samples (Human serum) with MAFLD</h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                            <div><strong class="block text-base font-bold">Extraction</strong><p class="font-normal"><b>Cold precipitation</b>, SPE cleanup.</p></div>
+                            <div><strong class="block text-base font-bold">LC-MS System</strong><p class="font-normal"><b>Orbitrap Exploris™ 240</b>.</p></div>
+                            <div><strong class="block text-base font-bold">Column & Gradient</strong><p class="font-normal"><b>Hypersil GOLD™</b>, 20-min gradient.</p></div>
+                            <div><strong class="block text-base font-bold">MS Parameters</strong><p class="font-normal">HESI source, High-res, DDA with <b>AcquireX</b>.</p></div>
+                            <div><strong class="block text-base font-bold">Data Software</strong><p class="font-normal">Compound Discoverer™.</p></div>
+                            <div><strong class="block text-base font-bold">Databases</strong><p class="font-normal">mzCloud, ChemSpider.</p></div>
+                            <div><strong class="block text-base font-bold">Peak ID Parameters</strong><p class="font-normal">5 ppm mass deviation, S/N ratio 2.</p></div>
+                            <div><strong class="block text-base font-bold">Statistics</strong><p class="font-normal">Normalization, PCA, <b>OPLS-DA</b>.</p></div>
+                        </div>
+                        <div class="mt-6">
+                            <details class="smooth-accordion">
+                                <summary class="results-summary-button">View Key Results <span class="summary-arrow ml-2 inline-block">&#9654;</span></summary>
+                                <div class="results-content-wrapper">
+                                    <div class="results-content">
+                                        <h4 class="font-bold mb-2">Key Findings:</h4>
+                                        <ul class="list-disc list-inside text-sm space-y-1">
+                                            <li><b>OPLS-DA modeling</b> successfully distinguished between patient groups based on their metabolic profiles.</li>
+                                            <li>Key differentiating metabolites included specific acylcarnitines, bile acids, and phosphatidylcholines, indicating widespread <b>lipid dysregulation</b> in MAFLD and HIV comorbidity.</li>
+                                            <li>Pathway analysis highlighted significant alterations in <b>fatty acid oxidation</b> and <b>bile acid biosynthesis</b>, providing potential biomarkers for disease progression.</li>
+                                        </ul>
+                                        <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Serum1.png" alt="Box Plot" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Box Plot:</strong> Compares the distribution and consistency of all measured metabolites between the MAFLD and MAFLD with HIV groups.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/serum2.png" alt="PCA Plot" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>PCA Plot:</strong> Visualizes sample clustering to see if groups separate based on their overall metabolic profile.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/serum3.png" alt="S-Plot" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>S-Plot:</strong> Identifies the key metabolites that are most responsible for the group separation seen in the PCA plot.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                    <!-- Case Study 4: Mushroom -->
+                    <div class="case-study-card rounded-2xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">Golden mushroom: Metabolomics with AI-pharmacokinetic prediction</h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                            <div><strong class="block text-base font-bold">Extraction</strong><p class="font-normal">Water-ethanol solution, SPE cleanup.</p></div>
+                            <div><strong class="block text-base font-bold">LC-MS System</strong><p class="font-normal">Thermo Q Exactive-X Orbitrap.</p></div>
+                            <div><strong class="block text-base font-bold">Column & Gradient</strong><p class="font-normal">Hypersil GOLD™ C18, 20-min run.</p></div>
+                            <div><strong class="block text-base font-bold">MS Parameters</strong><p class="font-normal">High-res, Pos/Neg, top 20 DDA.</p></div>
+                            <div><strong class="block text-base font-bold">Data Software</strong><p class="font-normal">Compound Discoverer, AIDDISON™.</p></div>
+                            <div><strong class="block text-base font-bold">Databases</strong><p class="font-normal">mzCloud, ChemSpider, Natural Products Atlas.</p></div>
+                            <div><strong class="block text-base font-bold">Peak ID Parameters</strong><p class="font-normal">5 ppm tolerance, S/N 1.5.</p></div>
+                            <div><strong class="block text-base font-bold">Statistics</strong><p class="font-normal">GMM, PCA, UMAP.</p></div>
+                        </div>
+                        <div class="mt-6">
+                            <details class="smooth-accordion">
+                                <summary class="results-summary-button">View Key Results <span class="summary-arrow ml-2 inline-block">&#9654;</span></summary>
+                                <div class="results-content-wrapper">
+                                    <div class="results-content">
+                                        <h4 class="font-bold mb-2">Key Findings:</h4>
+                                        <ul class="list-disc list-inside text-sm space-y-1">
+                                            <li>High-resolution LC-MS/MS analysis identified <b>1,025 distinct molecular features</b> in the extract.</li>
+                                            <li>An AI-driven ADMET profile and pharmacokinetic clustering prioritized a subset of <b>27 compounds</b> with optimal drug-like properties.</li>
+                                            <li>Multi-target molecular docking identified the most promising lead candidates across three key anti-diabetic enzymes: <b>DPP4, α-amylase, and α-glucosidase.</b></li>
+                                        </ul>
+                                        <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Mushroom1.png" alt="PCA Plot of Metabolite Clusters" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Mass Spectrum: </strong> This plot identifies individual compounds by their unique mass-to-charge ratio (m/z), which helps confirm their chemical structure.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Mushroom2.png" alt="Docking Pose of Lead Compound" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Enzyme Inhibition Assay:</strong> This chart shows that the mushroom extract significantly reduces the activity of key anti-diabetic enzymes, demonstrating its inhibitory potential.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Mushroom3.png" alt="Enzyme Inhibition Chart" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong> PCA-Plot:</strong> This plot clusters metabolites based on their drug-like properties, helping to visually identify groups of promising compounds for further investigation.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                    <!-- Case Study 5: Water -->
+                    <div class="case-study-card rounded-2xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 border-b-2 pb-2" style="border-color: var(--accent-orange);">leaching precious metals from waste printed circuit boards: Metabolomics</h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                            <div><strong class="block text-base font-bold">Extraction</strong><p class="font-normal">Bacterial supernatants, SPE cleanup.</p></div>
+                            <div><strong class="block text-base font-bold">LC-MS System</strong><p class="font-normal">Thermo Q-Exactive Orbitrap.</p></div>
+                            <div><strong class="block text-base font-bold">Column & Gradient</strong><p class="font-normal">Hypersil GOLD™ C18.</p></div>
+                            <div><strong class="block text-base font-bold">MS Parameters</strong><p class="font-normal">Positive mode, MS and DDA MS/MS.</p></div>
+                            <div><strong class="block text-base font-bold">Data Software</strong><p class="font-normal">Compound Discoverer.</p></div>
+                            <div><strong class="block text-base font-bold">Databases</strong><p class="font-normal">mzCloud, ChemSpider.</p></div>
+                            <div><strong class="block text-base font-bold">Peak ID Parameters</strong><p class="font-normal">Significant difference (p<0.01) after correction.</p></div>
+                            <div><strong class="block text-base font-bold">Statistics</strong><p class="font-normal">ANOVA with Tukey's HSD & correction.</p></div>
+                        </div>
+                        <div class="mt-6">
+                            <details class="smooth-accordion">
+                                <summary class="results-summary-button">View Key Results <span class="summary-arrow ml-2 inline-block">&#9654;</span></summary>
+                                <div class="results-content-wrapper">
+                                    <div class="results-content">
+                                        <h4 class="font-bold mb-2">Key Findings:</h4>
+                                        <ul class="list-disc list-inside text-sm space-y-1">
+                                            <li>A novel <b>stepwise bioleaching process</b> was developed to maximize metal recovery from Waste Printed Circuit Boards (WPCBs). </li>
+                                            <li>Pretreating WPCBs with ball milling and ozonation significantly enhanced the stepwise process, improving metal extraction yield, a total final gold recovery of <b>93%</b>.</li>
+                                            <li>Metabolomics analysis identified <b>N⁸-acetylspermidine</b> as a key metabolite produced by all tested bacteria.</li>
+                                            <li>Confirmed that <b>N⁸-acetylspermidine</b> reduce the precipitation of gold ions from the solution, unreported phenomenon in bioleaching.</li>
+                                        </ul>
+                                        <h5 class="font-bold mt-4 mb-2 text-base text-gray-800">Data Visualizations:</h5>
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Water1.png" alt="Schematic of Bioleaching Process" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Bioleaching Efficiency: </strong> This chart compares how effectively different bacteria extract copper from electronic waste, highlighting that the C. funkei strain performs best among the single cultures.</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Water2.png" alt="Effect of Pretreatment on Gold Leaching" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong>Stepwise Bioleaching Comparison: </strong> This chart demonstrates that a multi-step leaching process (right side) extracts significantly more copper than any single-step method (left side).</p></div>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"><img src="Picture/Water3.png" alt="Metabolite Heat Map" class="w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFD5C2/2D3047?text=Image+Not+Found'"><p class="text-xs mt-2 text-gray-600 text-left"><strong> Hierarchical Clustering: </strong> This heat map compares metabolite abundance across different bacterial cultures and a control. It clusters groups with similar profiles, revealing the unique chemical signature of each bacterium</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -477,21 +621,22 @@
             const timelineDesktop = document.getElementById('timeline-desktop');
             const detailContainer = document.getElementById('process-detail-container');
             const timelineProgress = document.getElementById('timeline-progress');
+            const timelineMobile = document.getElementById('timeline-mobile');
 
             function showDesktopDetails(step) {
-                const currentActive = document.querySelector('.timeline-step.active');
+                const currentActive = timelineDesktop.querySelector('.timeline-step.active');
                 if (currentActive && currentActive.dataset.step === step) {
                     detailContainer.innerHTML = '';
                     currentActive.classList.remove('active');
-                    timelineProgress.style.width = '0%';
+                    if(timelineProgress) timelineProgress.style.width = '0%';
                     return;
                 }
 
                 detailContainer.innerHTML = '';
-                document.querySelectorAll('.timeline-step').forEach(el => el.classList.remove('active'));
+                timelineDesktop.querySelectorAll('.timeline-step').forEach(el => el.classList.remove('active'));
                 
                 if (processDetails[step]) {
-                    const stepElement = document.querySelector(`.timeline-step[data-step="${step}"]`);
+                    const stepElement = timelineDesktop.querySelector(`.timeline-step[data-step="${step}"]`);
                     stepElement.classList.add('active');
                     const detailData = processDetails[step];
                     const detailElement = document.createElement('div');
@@ -499,10 +644,29 @@
                     detailElement.innerHTML = `<h3>${detailData.title}</h3>${detailData.content}`;
                     detailContainer.appendChild(detailElement);
                     
-                    // Update progress bar
-                    const stepPosition = parseFloat(stepElement.style.left) - 7; // Adjust for initial offset
-                    timelineProgress.style.width = `${stepPosition}%`;
+                    if(timelineProgress) {
+                        const stepPosition = parseFloat(stepElement.style.left) - 7;
+                        timelineProgress.style.width = `${stepPosition}%`;
+                    }
                 }
+            }
+            
+            function setupMobileDetails() {
+                const mobileSteps = timelineMobile.querySelectorAll('details.vertical-timeline-step');
+                mobileSteps.forEach(step => {
+                    const stepNumber = step.dataset.step;
+                    const detailView = step.querySelector('.process-detail-view');
+                    if (processDetails[stepNumber]) {
+                        detailView.innerHTML = `<h3>${processDetails[stepNumber].title}</h3>${processDetails[stepNumber].content}`;
+                    }
+                    step.addEventListener('toggle', () => {
+                        if (step.open) {
+                            mobileSteps.forEach(otherStep => {
+                                if (otherStep !== step) otherStep.open = false;
+                            });
+                        }
+                    });
+                });
             }
 
             if (timelineDesktop) {
@@ -511,31 +675,25 @@
                     if (stepElement) showDesktopDetails(stepElement.dataset.step);
                 });
             }
-            
-            // Setup mobile timeline (which now also uses smooth accordion)
-            document.querySelectorAll('#timeline-mobile details').forEach(step => {
-                const stepNumber = step.dataset.step;
-                const detailView = step.querySelector('.process-detail-view');
-                if (processDetails[stepNumber]) {
-                    detailView.innerHTML = `<h3>${processDetails[stepNumber].title}</h3>${processDetails[stepNumber].content}`;
-                }
-            });
+            if (timelineMobile) {
+                setupMobileDetails();
+            }
 
             // ===================================
             // Smooth Accordion for Case Studies
             // ===================================
-            document.querySelectorAll('.smooth-accordion summary').forEach(summary => {
+            document.querySelectorAll('.smooth-accordion').forEach(accordion => {
+                const summary = accordion.querySelector('summary');
+                const contentWrapper = accordion.querySelector('.results-content-wrapper');
+                
                 summary.addEventListener('click', e => {
                     e.preventDefault();
-                    const detailElement = summary.parentElement;
-                    const contentWrapper = summary.nextElementSibling;
-
-                    if (detailElement.hasAttribute('open')) {
+                    if (accordion.hasAttribute('open')) {
                         contentWrapper.style.maxHeight = '0px';
-                        detailElement.removeAttribute('open');
+                        accordion.removeAttribute('open');
                     } else {
                         contentWrapper.style.maxHeight = contentWrapper.scrollHeight + 'px';
-                        detailElement.setAttribute('open', '');
+                        accordion.setAttribute('open', '');
                     }
                 });
             });
@@ -545,14 +703,14 @@
             // ===================================
             const sidebar = document.getElementById('sidebar');
             const menuButton = document.getElementById('menu-button');
-            const sections = document.querySelectorAll('.section-card, #section-5');
+            const sections = document.querySelectorAll('#section-1, #section-2, #section-3, #section-4, #section-5, #section-6');
             const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
             menuButton.addEventListener('click', () => {
                 sidebar.classList.toggle('-translate-x-full');
             });
 
-            const observerOptions = { rootMargin: "-30% 0px -70% 0px" };
+            const observerOptions = { rootMargin: "-30% 0px -60% 0px" };
             const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
